@@ -8,22 +8,22 @@ import Leadership from './pages/Leadership';
 import './index.css';
 
 function App() {
-    return (
-        <Router>
-            <div className="flex flex-col min-h-screen">
-                <Navbar />
-                <main className="flex-grow">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/products" element={<Products />} />
-                        <Route path="/news" element={<News />} />
-                        <Route path="/leadership" element={<Leadership />} />
-                    </Routes>
-                </main>
-                <Footer />
-            </div>
-        </Router>
-    );
+  return (
+      <Router>
+        <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/leadership" element={<Leadership />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+  );
 }
 
 export default App;
