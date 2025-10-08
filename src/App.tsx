@@ -2,22 +2,22 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Products from './pages/Products';
-import News from './pages/News';
-import Leadership from './pages/Leadership';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Sparkles from './components/Sparkles';
 import './index.css';
 
 function App() {
   return (
       <Router>
-        <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+        <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-black via-purple-900 to-indigo-900">
+          <Sparkles />
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow relative z-10">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/news" element={<News />} />
-              <Route path="/leadership" element={<Leadership />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
           <Footer />
