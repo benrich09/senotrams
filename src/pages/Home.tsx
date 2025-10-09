@@ -10,30 +10,58 @@ const Home: React.FC = () => {
     {
       id: 1,
       title: "Mystic Shadows",
-      image: "https://via.placeholder.com/300x200/4A0E4A/FFFFFF?text=Mystic+Shadows",
+      image: "/images/WhatsApp Image 2025-10-09 at 11.02.08.jpeg",
       description: "A thrilling tale of ancient magic and hidden realms, perfect for fantasy lovers.",
       link: "/comics/mystic-shadows"
     },
     {
       id: 2,
       title: "Urban Legends",
-      image: "https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Urban+Legends",
+      image: "/images/WhatsApp Image 2025-10-09 at 11.02.09.jpeg",
       description: "Gripping stories of city mysteries and supernatural encounters in modern life.",
       link: "/comics/urban-legends"
     },
     {
       id: 3,
       title: "Cosmic Voyage",
-      image: "https://via.placeholder.com/300x200/16213E/FFFFFF?text=Cosmic+Voyage",
+      image: "/images/WhatsApp Image 2025-10-09 at 11.02.10.jpeg",
       description: "An epic space adventure exploring distant galaxies and interstellar heroes.",
       link: "/comics/cosmic-voyage"
     },
     {
       id: 4,
       title: "Enchanted Forest",
-      image: "https://via.placeholder.com/300x200/0F3460/FFFFFF?text=Enchanted+Forest",
+      image: "/images/WhatsApp Image 2025-10-09 at 11.02.12.jpeg",
       description: "Whimsical comics of woodland creatures and magical quests in a vibrant world.",
       link: "/comics/enchanted-forest"
+    },
+    {
+     id: 5,
+      title: "Mystic Shadows",
+      image: "/images/WhatsApp Image 2025-10-09 at 11.02.11.jpeg",
+      description: "A thrilling tale of ancient magic and hidden realms, perfect for fantasy lovers.",
+      link: "/comics/mystic-shadows"
+    },
+    {
+      id: 6,
+      title: "Urban Legends",
+      image: "/images/WhatsApp Image 2025-10-09 at 11.02.12 (1).jpeg",
+      description: "Gripping stories of city mysteries and supernatural encounters in modern life.",
+      link: "/comics/urban-legends"
+    },
+    {
+     id: 7,
+      title: "Mystic Shadows",
+      image: "/images/89df8aa1-633f-4432-ba39-5f59b1996bac.jpeg",
+      description: "A thrilling tale of ancient magic and hidden realms, perfect for fantasy lovers.",
+      link: "/comics/mystic-shadows"
+    },
+    {
+      id: 8,
+      title: "Urban Legends",
+      image: "/images/Experience the thrill of urban web-slinging as our….jpeg",
+      description: "Gripping stories of city mysteries and supernatural encounters in modern life.",
+      link: "/comics/urban-legends"
     }
   ];
 
