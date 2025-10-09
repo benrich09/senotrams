@@ -171,7 +171,7 @@ const Home: React.FC = () => {
               <img 
                 src={story.image} 
                 alt={story.title}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="p-6 bg-black/10 backdrop-blur-sm">
                 <h3 className="text-white font-semibold text-lg mb-2">
