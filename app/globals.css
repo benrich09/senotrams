@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — Tailwind v4 CSS-first theme.
+   Palette: ink (near-black) / paper (warm white) / orange (signature)
+   / blue (secondary, the "group" color that ties companies together).
+   ============================================================ */
+@theme {
+  --color-ink: #06070b;
+  --color-ink-2: #0c0f17;
+  --color-ink-3: #12151f;
+  --color-paper: #fbfaf6;
+  --color-paper-2: #f3f1ea;
+  --color-line: #21242f;
+  --color-line-light: #e6e3d8;
+
+  --color-orange: #ff5a1f;
+  --color-orange-2: #ff8a4c;
+  --color-orange-soft: #ffe4d5;
+
+  --color-blue: #2b52e8;
+  --color-blue-2: #6f8bff;
+  --color-blue-soft: #dce4ff;
+
+  --color-ink-muted: #9aa1b4;
+  --color-slate: #545b6b;
+
+  --font-display: var(--font-sora);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jbmono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-orange);
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Reusable text treatments ---------- */
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-orange) 0%, var(--color-blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ---------- Floating glass navbar ---------- */
+
+.nav-float {
+  background: rgba(6, 7, 11, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Grid / dot backdrop for dark sections ---------- */
+
+.grid-backdrop {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.dot-backdrop {
+  background-image: radial-gradient(rgba(154, 161, 180, 0.35) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ---------- Company monogram / placeholder frames ---------- */
+
+.placeholder-frame {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(154, 161, 180, 0.12) 0px,
+      rgba(154, 161, 180, 0.12) 2px,
+      transparent 2px,
+      transparent 12px
+    );
+}
+
+/* ---------- Card hover glow ---------- */
+
+.glow-orange:hover {
+  box-shadow: 0 0 0 1px var(--color-orange), 0 18px 40px -18px rgba(255, 90, 31, 0.45);
+}
+
+.glow-blue:hover {
+  box-shadow: 0 0 0 1px var(--color-blue), 0 18px 40px -18px rgba(43, 82, 232, 0.45);
+}
