@@ -23,11 +23,13 @@ export interface Subsidiary {
   coverCaption: string; // what photo belongs in the detail-page hero
   galleryCaptions: string[]; // what photos belong in the "work" gallery
   bookingNote: string; // shown above the booking form on the detail page
+  website: string; // the subsidiary's own website URL (internal page for now — replace with the live domain when it exists)
 }
 
 export const subsidiaries: Subsidiary[] = [
   {
     slug: "avionics",
+    website: "/subsidiaries/avionics",
     monogram: "AV",
     name: "Avionics",
     tagline: "Software Engineering & Products",
@@ -55,6 +57,7 @@ export const subsidiaries: Subsidiary[] = [
   },
   {
     slug: "sati",
+    website: "/subsidiaries/sati",
     monogram: "SA",
     name: "SATI",
     tagline: "Digital Monitoring & Gaming",
@@ -82,6 +85,7 @@ export const subsidiaries: Subsidiary[] = [
   },
   {
     slug: "kidaino",
+    website: "/subsidiaries/kidaino",
     monogram: "KD",
     name: "KIDAINO",
     tagline: "Marketing, Design & Print",
@@ -109,6 +113,7 @@ export const subsidiaries: Subsidiary[] = [
   },
   {
     slug: "cognita",
+    website: "/subsidiaries/cognita",
     monogram: "CG",
     name: "COGNITA",
     tagline: "AI & Data Analysis",
@@ -137,6 +142,7 @@ export const subsidiaries: Subsidiary[] = [
   },
   {
     slug: "sentryx",
+    website: "/subsidiaries/sentryx",
     monogram: "SX",
     name: "SENTRYX",
     tagline: "Auditing, Consultation & Cyber Security",
@@ -164,6 +170,7 @@ export const subsidiaries: Subsidiary[] = [
   },
   {
     slug: "nexora",
+    website: "/subsidiaries/nexora",
     monogram: "NX",
     name: "NEXORA",
     tagline: "Cloud, Networking & IT Infrastructure",

@@ -6,24 +6,31 @@
    / blue (secondary, the "group" color that ties companies together).
    ============================================================ */
 @theme {
-  --color-ink: #06070b;
-  --color-ink-2: #0c0f17;
-  --color-ink-3: #12151f;
-  --color-paper: #fbfaf6;
-  --color-paper-2: #f3f1ea;
-  --color-line: #21242f;
-  --color-line-light: #e6e3d8;
+  /* NavikX-inspired dark teal theme.
+     Note: --color-orange now holds the TEAL accent (class names like
+     text-orange stayed the same across the site; only the value changed). */
+  --color-ink: #041012;
+  --color-ink-2: #06181c;
+  --color-ink-3: #0a2126;
+  --color-paper: #06181c;
+  --color-paper-2: #0a2126;
+  --color-panel: #0c262c;
+  --color-line: #1c3a40;
+  --color-line-light: #163038;
 
-  --color-orange: #ff5a1f;
-  --color-orange-2: #ff8a4c;
-  --color-orange-soft: #ffe4d5;
+  --color-snow: #ecfdf8;
+  --color-mist: #7da8a1;
 
-  --color-blue: #2b52e8;
-  --color-blue-2: #6f8bff;
-  --color-blue-soft: #dce4ff;
+  --color-orange: #14d8bc;
+  --color-orange-2: #4ff0d8;
+  --color-orange-soft: #0e3c37;
 
-  --color-ink-muted: #9aa1b4;
-  --color-slate: #545b6b;
+  --color-blue: #38bdf8;
+  --color-blue-2: #7dd3fc;
+  --color-blue-soft: #0c2c3f;
+
+  --color-ink-muted: #7da8a1;
+  --color-slate: #9fc2bb;
 
   --font-display: var(--font-sora);
   --font-body: var(--font-inter);
@@ -40,7 +47,7 @@ html {
 
 body {
   background-color: var(--color-paper);
-  color: var(--color-ink);
+  color: var(--color-snow);
 }
 
 ::selection {
@@ -121,9 +128,17 @@ button:focus-visible {
 /* ---------- Card hover glow ---------- */
 
 .glow-orange:hover {
-  box-shadow: 0 0 0 1px var(--color-orange), 0 18px 40px -18px rgba(255, 90, 31, 0.45);
+  box-shadow: 0 18px 50px -12px rgba(20, 216, 188, 0.35);
 }
 
 .glow-blue:hover {
-  box-shadow: 0 0 0 1px var(--color-blue), 0 18px 40px -18px rgba(43, 82, 232, 0.45);
+  box-shadow: 0 18px 50px -12px rgba(56, 189, 248, 0.35);
+}
+
+
+/* ---------- NavikX-style ambient teal glow ---------- */
+.teal-aurora {
+  background:
+    radial-gradient(50rem 30rem at 85% -5%, rgba(20, 216, 188, 0.12), transparent 60%),
+    radial-gradient(40rem 28rem at 0% 45%, rgba(56, 189, 248, 0.08), transparent 60%);
 }

@@ -15,7 +15,7 @@ export default function SubsidiariesPage() {
       <PageHero
         eyebrow="The group"
         title="Six subsidiaries, one core."
-        description="Each subsidiary opens in its own page with the full list of services and a booking form — click a card to open it in a new tab."
+        description="Tap a card to see its service categories right here, or visit each subsidiary’s own site for full details, products and booking."
       />
 
       <section className="px-6 py-20 md:px-10 md:py-28">

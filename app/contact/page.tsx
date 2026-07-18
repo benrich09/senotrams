@@ -28,33 +28,33 @@ export default function ContactPage() {
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-5">
           {/* Form */}
-          <form className="flex flex-col gap-5 rounded-3xl border border-line bg-white p-8 lg:col-span-3">
+          <form className="flex flex-col gap-5 rounded-3xl border border-line bg-panel p-8 lg:col-span-3">
             <div className="grid gap-5 sm:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+              <label className="flex flex-col gap-2 text-sm font-medium text-snow">
                 Name
                 <input
                   type="text"
                   name="name"
                   placeholder="Your full name"
-                  className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-orange"
+                  className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
                 />
               </label>
-              <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+              <label className="flex flex-col gap-2 text-sm font-medium text-snow">
                 Phone or email
                 <input
                   type="text"
                   name="contact"
                   placeholder="How can we reach you?"
-                  className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-orange"
+                  className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
                 />
               </label>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+            <label className="flex flex-col gap-2 text-sm font-medium text-snow">
               Which subsidiary is this for?
               <select
                 name="subsidiary"
-                className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-orange"
+                className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
               >
                 <option>Not sure — route it for me</option>
                 {subsidiaries.map((s) => (
@@ -63,13 +63,13 @@ export default function ContactPage() {
               </select>
             </label>
 
-            <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+            <label className="flex flex-col gap-2 text-sm font-medium text-snow">
               Message
               <textarea
                 name="message"
                 rows={5}
                 placeholder="Tell us about your project..."
-                className="resize-none rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-orange"
+                className="resize-none rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
               />
             </label>
 
@@ -87,14 +87,14 @@ export default function ContactPage() {
               <a
                 key={c.label}
                 href={c.href}
-                className="group flex items-center gap-4 rounded-2xl border border-line bg-white p-5 transition-colors hover:border-orange/50"
+                className="group flex items-center gap-4 rounded-2xl border border-line bg-panel p-5 transition-colors hover:border-orange/50"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange">
                   <c.icon size={17} />
                 </span>
                 <div>
                   <p className="eyebrow text-slate">{c.label}</p>
-                  <p className="mt-0.5 text-sm font-medium text-ink">{c.value}</p>
+                  <p className="mt-0.5 text-sm font-medium text-snow">{c.value}</p>
                 </div>
               </a>
             ))}

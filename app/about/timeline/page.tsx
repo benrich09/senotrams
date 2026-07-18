@@ -23,7 +23,7 @@ export default function TimelinePage() {
               <li key={i} className="mb-12 last:mb-0">
                 <span className="absolute -left-[7px] mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-paper bg-orange" />
                 <span className="eyebrow text-orange">{entry.year}</span>
-                <h3 className="mt-2 font-display text-xl font-semibold text-ink sm:text-2xl">
+                <h3 className="mt-2 font-display text-xl font-semibold text-snow sm:text-2xl">
                   {entry.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate sm:text-base">

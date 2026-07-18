@@ -51,9 +51,9 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
   };
 
   return (
-    <div className="rounded-3xl border border-line bg-white p-7 sm:p-8">
+    <div className="rounded-3xl border border-line bg-panel p-7 sm:p-8">
       <span className={`eyebrow ${accentText}`}>Book a service</span>
-      <h3 className="mt-2 font-display text-2xl font-semibold text-ink">
+      <h3 className="mt-2 font-display text-2xl font-semibold text-snow">
         Get {subsidiary.name} working on it
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-slate">{subsidiary.bookingNote}</p>
@@ -63,35 +63,35 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
         className="mt-6 flex flex-col gap-4"
       >
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+          <label className="flex flex-col gap-2 text-sm font-medium text-snow">
             Full name
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors ${accentFocus}`}
+              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
             />
           </label>
-          <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+          <label className="flex flex-col gap-2 text-sm font-medium text-snow">
             Phone or email
             <input
               type="text"
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               placeholder="How should we reach you?"
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors ${accentFocus}`}
+              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
             />
           </label>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+          <label className="flex flex-col gap-2 text-sm font-medium text-snow">
             Service needed
             <select
               value={service}
               onChange={(e) => setService(e.target.value)}
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors ${accentFocus}`}
+              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
             >
               {subsidiary.services.map((s) => (
                 <option key={s.title} value={s.title}>
@@ -100,26 +100,26 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
               ))}
             </select>
           </label>
-          <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+          <label className="flex flex-col gap-2 text-sm font-medium text-snow">
             Preferred date{" "}
-            <span className="font-normal text-ink-muted">(optional)</span>
+            <span className="font-normal text-mist">(optional)</span>
             <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors ${accentFocus}`}
+              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
             />
           </label>
         </div>
 
-        <label className="flex flex-col gap-2 text-sm font-medium text-ink">
+        <label className="flex flex-col gap-2 text-sm font-medium text-snow">
           Tell us more
           <textarea
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Any details that'll help us prepare..."
-            className={`resize-none rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-ink outline-none transition-colors ${accentFocus}`}
+            className={`resize-none rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
           />
         </label>
 
@@ -141,7 +141,7 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
           <button
             type="button"
             onClick={handleEmail}
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-ink"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-semibold text-snow transition-colors hover:border-ink"
           >
             <FaEnvelope size={14} />
             Book via email

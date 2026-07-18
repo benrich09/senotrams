@@ -46,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable} ${jbMono.variable}`}>
-      <body className="font-body bg-paper text-ink antialiased">
+      <body className="font-body bg-paper text-snow antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -1,107 +1,59 @@
 import Link from "next/link";
-import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { subsidiaries } from "@/data/subsidiaries";
-import { navItems, contactItem } from "@/data/nav";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ink px-6 pb-10 pt-20 text-white md:px-10">
-      <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-40" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="grid gap-12 md:grid-cols-4">
+    <footer className="bg-ink px-6 py-14 text-white md:px-10">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange to-blue text-xs font-bold text-white">
-                S
-              </span>
-              <span className="font-display text-lg font-bold">SENOTRAMS</span>
+          <div>
+            <Link href="/" className="font-display text-lg font-bold">
+              SENOTRAMS
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
-              One core, six subsidiaries — software & AI, digital monitoring & gaming,
-              marketing & print, data & AI, security & auditing, and IT infrastructure.
-              Reversed from &ldquo;Smartones,&rdquo; built from an idea.
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-mist">
+              One group, six subsidiaries — software, digital services, marketing,
+              data & AI, security, and IT infrastructure.
             </p>
-            <div className="mt-5 flex gap-3">
-              {[FaInstagram, FaFacebook, FaLinkedin].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-orange/50 hover:text-orange"
-                  aria-label="Social link"
-                >
-                  <Icon size={15} />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Subsidiaries */}
           <div>
             <h4 className="eyebrow text-white/50">Subsidiaries</h4>
-            <ul className="mt-5 flex flex-col gap-3">
+            <ul className="mt-4 flex flex-col gap-2.5">
               {subsidiaries.map((s) => (
                 <li key={s.slug}>
                   <Link
-                    href={`/subsidiaries/${s.slug}`}
-                    className="text-sm text-ink-muted transition-colors hover:text-orange"
+                    href={s.website}
+                    className="text-sm text-mist transition-colors hover:text-orange"
                   >
-                    {s.name} — {s.tagline}
+                    {s.name}
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Navigate */}
-          <div>
-            <h4 className="eyebrow text-white/50">Navigate</h4>
-            <ul className="mt-5 flex flex-col gap-3">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-ink-muted transition-colors hover:text-orange">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-              {navItems
-                .find((i) => i.dropdown)
-                ?.dropdown?.map((sub) => (
-                  <li key={sub.href}>
-                    <Link href={sub.href} className="text-sm text-ink-muted transition-colors hover:text-orange">
-                      {sub.label}
-                    </Link>
-                  </li>
-                ))}
-              <li>
-                <Link href={contactItem.href} className="text-sm text-ink-muted transition-colors hover:text-orange">
-                  {contactItem.label}
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="eyebrow text-white/50">Get in touch</h4>
-            <div className="mt-5 flex flex-col gap-3">
-              <a href="https://wa.me/000000000000" className="flex items-center gap-3 text-sm text-ink-muted transition-colors hover:text-orange">
-                <FaWhatsapp size={16} /> WhatsApp us
-              </a>
-              <a href="tel:+000000000000" className="flex items-center gap-3 text-sm text-ink-muted transition-colors hover:text-orange">
-                <FaPhoneAlt size={14} /> Call / SMS
-              </a>
-              <a href="mailto:hello@senotrams.example" className="flex items-center gap-3 text-sm text-ink-muted transition-colors hover:text-orange">
-                <FaEnvelope size={14} /> hello@senotrams.example
-              </a>
-            </div>
+            <h4 className="eyebrow text-white/50">Contact</h4>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm text-mist">
+              <li className="flex items-center gap-2">
+                <FaPhoneAlt size={12} className="text-orange" /> +255 700 000 000
+              </li>
+              <li className="flex items-center gap-2">
+                <FaWhatsapp size={13} className="text-orange" /> WhatsApp us
+              </li>
+              <li className="flex items-center gap-2">
+                <FaEnvelope size={12} className="text-orange" /> info@senotrams.co.tz
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} Senotrams Group. All rights reserved.</p>
-          <p>Avionics · SATI · KIDAINO · COGNITA · SENTRYX · NEXORA</p>
+        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-mist">
+          © {new Date().getFullYear()} SENOTRAMS Group. All rights reserved.
         </div>
       </div>
     </footer>

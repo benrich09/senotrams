@@ -9,7 +9,7 @@ export default function Home() {
     <>
       {/* ---------- Hero (unchanged) ---------- */}
       <section className="relative flex h-screen min-h-[720px] w-full items-center overflow-hidden bg-ink text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,90,31,0.16),transparent_50%),radial-gradient(circle_at_80%_75%,rgba(43,82,232,0.22),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(20,216,188,0.14),transparent_50%),radial-gradient(circle_at_80%_75%,rgba(56,189,248,0.16),transparent_50%)]" />
         <Hero3D />
         <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-[0.15]" />
 
@@ -22,18 +22,18 @@ export default function Home() {
           <h1 className="mt-6 max-w-3xl font-display text-5xl font-bold leading-[0.98] sm:text-7xl md:text-8xl">
             SENOTRAMS
           </h1>
-          <p className="eyebrow mt-3 text-white/40">smartones, reversed</p>
+          <p className="eyebrow mt-3 text-orange">2026&nbsp;&nbsp;|&nbsp;&nbsp;Innovate&nbsp;&nbsp;|&nbsp;&nbsp;Build&nbsp;&nbsp;|&nbsp;&nbsp;Scale</p>
 
           <p className="mt-6 max-w-xl text-base text-white/70 sm:text-lg">
-            One core. Three companies. Software &amp; AI, digital electronics
-            &amp; gaming, and design, marketing &amp; print — everything a
-            business or a person needs, built by one group.
+            One core. Six subsidiaries. Software &amp; products, digital services
+            &amp; gaming, marketing &amp; print, AI &amp; data, security, and IT
+            infrastructure — everything a business needs, built by one group.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/subsidiaries"
-              className="inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-ink transition-shadow duration-200 hover:shadow-[0_0_30px_rgba(20,216,188,0.45)]"
             >
               Meet the companies
               <ArrowRight size={16} />
@@ -74,7 +74,7 @@ export default function Home() {
               <span className="eyebrow inline-flex items-center gap-2 rounded-full border border-line-light bg-paper-2 px-4 py-1.5 text-orange">
                 How we started
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl md:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-snow sm:text-4xl md:text-5xl">
                 A high-school idea, grouped into{" "}
                 <span className="text-gradient">six subsidiaries.</span>
               </h2>
@@ -93,7 +93,7 @@ export default function Home() {
                   { value: "TZ", label: "Based in" },
                 ].map((stat) => (
                   <div key={stat.label} className="rounded-2xl border border-line-light bg-paper-2 px-4 py-4">
-                    <p className="font-display text-2xl font-bold text-ink">{stat.value}</p>
+                    <p className="font-display text-2xl font-bold text-snow">{stat.value}</p>
                     <p className="eyebrow mt-1 text-[10px] text-slate">{stat.label}</p>
                   </div>
                 ))}
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="mb-14 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
             <div className="max-w-xl">
               <span className="eyebrow text-blue">The group</span>
-              <h2 className="mt-4 font-display text-3xl font-bold text-ink sm:text-4xl md:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl md:text-5xl">
                 Six subsidiaries, one core.
               </h2>
               <p className="mt-4 text-base text-slate">
@@ -128,7 +128,7 @@ export default function Home() {
             </div>
             <Link
               href="/subsidiaries"
-              className="whitespace-nowrap rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-orange hover:text-orange"
+              className="whitespace-nowrap rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-snow transition-colors hover:border-orange hover:text-orange"
             >
               View all subsidiaries
             </Link>

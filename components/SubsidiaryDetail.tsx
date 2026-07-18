@@ -62,7 +62,7 @@ export default function SubsidiaryDetail({ slug }: { slug: string }) {
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-5xl">
           <span className={`eyebrow ${accentText}`}>What {subsidiary.name} does</span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
             All services
           </h2>
           <p className="mt-3 max-w-2xl text-sm text-slate sm:text-base">
@@ -73,13 +73,13 @@ export default function SubsidiaryDetail({ slug }: { slug: string }) {
             {subsidiary.services.map((s) => (
               <div
                 key={s.title}
-                className="flex items-start gap-3 rounded-2xl border border-line bg-white p-5"
+                className="flex items-start gap-3 rounded-2xl border border-line bg-panel p-5"
               >
                 <span className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${accentBg}/15`}>
                   <Check size={13} className={accentText} />
                 </span>
                 <div>
-                  <span className="block text-sm font-semibold text-ink">{s.title}</span>
+                  <span className="block text-sm font-semibold text-snow">{s.title}</span>
                   <span className="mt-1 block text-xs leading-relaxed text-slate">{s.detail}</span>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function SubsidiaryDetail({ slug }: { slug: string }) {
       <section className="border-y border-line-light bg-paper-2 px-6 py-20 md:px-10 md:py-24">
         <div className="mx-auto max-w-5xl">
           <span className={`eyebrow ${accentText}`}>Selected work</span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
             Recent projects
           </h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -118,7 +118,7 @@ export default function SubsidiaryDetail({ slug }: { slug: string }) {
       {/* CTA */}
       <section className="px-6 pb-24 text-center md:px-10 md:pb-28">
         <span className={`eyebrow ${accentText}`}>Prefer to talk first?</span>
-        <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-bold text-ink sm:text-4xl">
+        <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-bold text-snow sm:text-4xl">
           Have a project for {subsidiary.name}?
         </h2>
         <Link
