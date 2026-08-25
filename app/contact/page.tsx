@@ -1,113 +1,75 @@
-import type { Metadata } from "next";
-import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+"use client";
+
+import { FormEvent, useState } from "react";
 import PageHero from "@/components/PageHero";
-import { subsidiaries } from "@/data/subsidiaries";
 
-export const metadata: Metadata = {
-  title: "Contact | Senotrams Group",
-  description:
-    "Reach the Senotrams Group office, or a specific subsidiary — Avionics, SATI, KIDAINO, COGNITA, SENTRYX or NEXORA.",
-};
-
-const contactMethods = [
-  { icon: FaWhatsapp, label: "WhatsApp", value: "Add your number", href: "https://wa.me/000000000000" },
-  { icon: FaPhoneAlt, label: "Call / SMS", value: "Add your number", href: "tel:+000000000000" },
-  { icon: FaEnvelope, label: "Email", value: "hello@senotrams.example", href: "mailto:hello@senotrams.example" },
-  { icon: FaMapMarkerAlt, label: "Location", value: "Add your address", href: "#" },
-];
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 
 export default function ContactPage() {
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [error, setError] = useState("");
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    setStatus("sending");
+    setError("");
+    try {
+      const res = await fetch(`${API_URL}/api/suggestions`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, contact, subject, message }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Could not send");
+      }
+      setStatus("ok");
+      setName("");
+      setContact("");
+      setSubject("");
+      setMessage("");
+    } catch (err) {
+      setStatus("err");
+      setError(err instanceof Error ? err.message : "Failed");
+    }
+  }
+
   return (
     <div className="bg-paper">
       <PageHero
-        eyebrow="We're here"
-        title="Reach out."
-        description="Message us directly, or tell us which subsidiary your project belongs to."
+        eyebrow="Suggestions"
+        title="Share a recommendation."
+        description="Ideas, feedback and improvements for Senotrams — we read every note in the admin inbox."
       />
-
-      <section className="px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-5">
-          {/* Form */}
-          <form className="flex flex-col gap-5 rounded-3xl border border-line bg-panel p-8 lg:col-span-3">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm font-medium text-snow">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your full name"
-                  className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-sm font-medium text-snow">
-                Phone or email
-                <input
-                  type="text"
-                  name="contact"
-                  placeholder="How can we reach you?"
-                  className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
-                />
-              </label>
-            </div>
-
+      <section className="px-6 py-16 md:px-10 md:py-20">
+        <div className="mx-auto max-w-xl">
+          <form onSubmit={onSubmit} className="flex flex-col gap-4 rounded-3xl border border-line bg-panel p-7 sm:p-8">
             <label className="flex flex-col gap-2 text-sm font-medium text-snow">
-              Which subsidiary is this for?
-              <select
-                name="subsidiary"
-                className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
-              >
-                <option>Not sure — route it for me</option>
-                {subsidiaries.map((s) => (
-                  <option key={s.slug}>{s.name} — {s.tagline}</option>
-                ))}
-              </select>
+              Name
+              <input required value={name} onChange={(e) => setName(e.target.value)} className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none focus:border-orange" />
             </label>
-
             <label className="flex flex-col gap-2 text-sm font-medium text-snow">
-              Message
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="Tell us about your project..."
-                className="resize-none rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
-              />
+              Email or phone (optional)
+              <input value={contact} onChange={(e) => setContact(e.target.value)} className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none focus:border-orange" />
             </label>
-
-            <button
-              type="submit"
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-orange px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-[1.02]"
-            >
-              Send message
+            <label className="flex flex-col gap-2 text-sm font-medium text-snow">
+              Subject (optional)
+              <input value={subject} onChange={(e) => setSubject(e.target.value)} className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none focus:border-orange" />
+            </label>
+            <label className="flex flex-col gap-2 text-sm font-medium text-snow">
+              Your suggestion
+              <textarea required rows={5} value={message} onChange={(e) => setMessage(e.target.value)} className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none focus:border-orange" placeholder="What should we improve or try next?" />
+            </label>
+            {status === "ok" && <p className="text-sm text-orange">Thank you — your suggestion was received.</p>}
+            {status === "err" && <p className="text-sm text-red-400">{error}</p>}
+            <button type="submit" disabled={status === "sending"} className="mt-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink disabled:opacity-60">
+              {status === "sending" ? "Sending…" : "Send suggestion"}
             </button>
           </form>
-
-          {/* Contact details */}
-          <div className="flex flex-col gap-4 lg:col-span-2">
-            {contactMethods.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                className="group flex items-center gap-4 rounded-2xl border border-line bg-panel p-5 transition-colors hover:border-orange/50"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange">
-                  <c.icon size={17} />
-                </span>
-                <div>
-                  <p className="eyebrow text-slate">{c.label}</p>
-                  <p className="mt-0.5 text-sm font-medium text-snow">{c.value}</p>
-                </div>
-              </a>
-            ))}
-
-            <div className="rounded-2xl border border-dashed border-line-light bg-paper-2 p-5">
-              <p className="eyebrow text-slate">Note</p>
-              <p className="mt-2 text-sm text-slate">
-                Prefer to book a specific service directly? Every subsidiary
-                page has its own booking form that goes straight to WhatsApp
-                or email.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

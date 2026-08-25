@@ -1,43 +1,48 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projects | Senotrams Group",
-  description: "Recent work across all six Senotrams subsidiaries.",
+  title: "Projects | Senotrams",
+  description: "Selected work and the kinds of outcomes we deliver.",
 };
+
+const showcase = [
+  { title: "Product websites", category: "Web", blurb: "Clear marketing sites that explain the offer and convert visitors." },
+  { title: "Business web apps", category: "Software", blurb: "Internal tools and client portals built around real workflows." },
+  { title: "Brand systems", category: "Design", blurb: "Identity and assets that stay consistent across channels." },
+  { title: "Launch campaigns", category: "Marketing", blurb: "Coordinated content and ads around a product or event." },
+  { title: "Hosting & domains", category: "Infrastructure", blurb: "Reliable setups with email, SSL and ongoing care." },
+  { title: "Content systems", category: "Content", blurb: "Copy and calendars that keep a brand active online." },
+];
 
 export default function ProjectsPage() {
   return (
     <div className="bg-paper">
       <PageHero
         eyebrow="Our work"
-        title="Projects across the group."
-        description="A look at recent work across Avionics, SATI, KIDAINO, COGNITA, SENTRYX and NEXORA — photos are placeholders, ready for you to fill in."
+        title="Outcomes we optimise for."
+        description="Projects are curated manually. Here is the shape of work we take on — request a similar engagement from Services."
       />
-
-      <section className="px-6 py-20 md:px-10 md:py-28">
+      <section className="px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, i) => (
-            <div key={i} className="flex flex-col overflow-hidden rounded-3xl border border-line bg-panel">
-              {/* TODO: replace with a real project photo */}
-              <div className="placeholder-frame flex aspect-[4/3] items-center justify-center border-b border-line-light">
-                <span className="eyebrow text-slate">Project photo</span>
+          {showcase.map((p) => (
+            <article
+              key={p.title}
+              className="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.75rem] border border-line-light bg-paper-2 p-6 transition-colors hover:border-orange/40 sm:aspect-[5/6]"
+            >
+              <span className="eyebrow text-orange">{p.category}</span>
+              <div>
+                <h3 className="font-display text-xl font-bold text-snow">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{p.blurb}</p>
               </div>
-              <div className="p-6">
-                <span className="eyebrow text-orange">{p.company}</span>
-                <h3 className="mt-2 font-display text-lg font-semibold text-snow">
-                  {p.title || "Project title"}
-                </h3>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate">
-                  {p.category}
-                </p>
-                <p className="mt-3 text-sm text-slate">
-                  {p.description || "Short project description goes here."}
-                </p>
-              </div>
-            </div>
+            </article>
           ))}
+        </div>
+        <div className="mx-auto mt-12 max-w-6xl text-center">
+          <Link href="/services" className="inline-flex rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink">
+            Start from services
+          </Link>
         </div>
       </section>
     </div>

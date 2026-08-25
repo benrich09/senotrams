@@ -7,7 +7,7 @@ import { founders } from "@/data/team";
 export const metadata: Metadata = {
   title: "About Us | Senotrams Group",
   description:
-    "Senotrams started as a high-school idea between Benson Richard and Wenseslaus Kidakule, and grew into a group of six subsidiaries.",
+    "Senotrams started as a high-school idea between Benson Richard and Wenseslaus Kidakule, and grew into a digital services company.",
 };
 
 export default function AboutPage() {
@@ -20,7 +20,7 @@ export default function AboutPage() {
             Just an idea, <span className="text-gradient">grouped</span> into a company.
           </>
         }
-        description="Senotrams began between two friends in high school, and grew into a group of six subsidiaries sharing one core."
+        description="Senotrams began between two friends in high school, and grew into a digital services company sharing one core."
       />
 
       {/* Origin story */}
@@ -50,7 +50,7 @@ export default function AboutPage() {
               </p>
               <p>
                 That idea grew into a proper group of companies by splitting
-                the original plan into focused subsidiaries: Avionics for
+                the original plan into focused services: software for
                 software, SATI for digital monitoring &amp; gaming, KIDAINO
                 for marketing &amp; print, COGNITA for AI &amp; data, SENTRYX
                 for security &amp; auditing, and NEXORA for IT infrastructure.
@@ -151,7 +151,7 @@ export default function AboutPage() {
               <div>
                 <span className="eyebrow text-orange">Milestones</span>
                 <h3 className="mt-2 font-display text-2xl font-semibold text-snow">Timeline</h3>
-                <p className="mt-2 text-sm text-slate">From idea to a group of six subsidiaries.</p>
+                <p className="mt-2 text-sm text-slate">From idea to a digital services company.</p>
               </div>
               <ArrowRight size={20} className="mt-6 text-slate transition-transform group-hover:translate-x-1" />
             </Link>
@@ -173,7 +173,7 @@ export default function AboutPage() {
               <div>
                 <span className="eyebrow text-orange">Join the group</span>
                 <h3 className="mt-2 font-display text-2xl font-semibold text-snow">Careers</h3>
-                <p className="mt-2 text-sm text-slate">Open roles across all six subsidiaries.</p>
+                <p className="mt-2 text-sm text-slate">Open roles across the team.</p>
               </div>
               <ArrowRight size={20} className="mt-6 text-slate transition-transform group-hover:translate-x-1" />
             </Link>

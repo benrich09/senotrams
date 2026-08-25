@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navItems, contactItem } from "@/data/nav";
 
@@ -34,7 +35,8 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-4 z-50 px-4 sm:top-5 sm:px-6">
       <div className="nav-float mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 sm:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center gap-2.5 shrink-0" onClick={() => setOpen(false)}>
+          <Image src="/images/logo.jpeg" alt="Senotrams" width={32} height={32} className="h-8 w-8 rounded-full object-cover ring-1 ring-white/20" />
           <span className="font-display text-lg font-bold tracking-tight text-white">
             SENOTRAMS
           </span>

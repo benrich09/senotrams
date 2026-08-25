@@ -2,30 +2,30 @@
 
 import { useState } from "react";
 import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import type { Subsidiary } from "@/data/subsidiaries";
+import { services } from "@/data/services";
 
-// TODO: replace with the real Senotrams WhatsApp number & email.
-const WHATSAPP_NUMBER = "000000000000";
-const CONTACT_EMAIL = "hello@senotrams.example";
+const WHATSAPP_NUMBER = "255700000000"; // TODO: real number
+const CONTACT_EMAIL = "info@senotrams.co.tz";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 
-export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) {
-  const isBlue = subsidiary.accent === "blue";
-  const accentBg = isBlue ? "bg-blue" : "bg-orange";
-  const accentText = isBlue ? "text-blue" : "text-orange";
-  const accentFocus = isBlue ? "focus:border-blue" : "focus:border-orange";
-
+export default function BookingForm({
+  defaultService = "",
+}: {
+  defaultService?: string;
+}) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [service, setService] = useState(subsidiary.services[0]?.title ?? "");
+  const [service, setService] = useState(defaultService || services[0]?.name || "");
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
   const [touched, setTouched] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
 
   const isValid = name.trim().length > 0 && contact.trim().length > 0;
 
   const buildMessage = () =>
     [
-      `Hello ${subsidiary.name}, I'd like to book a service.`,
+      `Hello Senotrams, I'd like to request a service.`,
       `Name: ${name}`,
       `Contact: ${contact}`,
       `Service: ${service}`,
@@ -35,33 +35,55 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
       .filter(Boolean)
       .join("\n");
 
-  const handleWhatsApp = () => {
+  const submitOrder = async () => {
+    try {
+      setStatus("sending");
+      const res = await fetch(`${API_URL}/api/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          contact,
+          service,
+          preferred_date: date,
+          message,
+        }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setStatus("ok");
+    } catch {
+      setStatus("err");
+    }
+  };
+
+  const handleWhatsApp = async () => {
     setTouched(true);
     if (!isValid) return;
+    await submitOrder();
     const text = encodeURIComponent(buildMessage());
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
   };
 
-  const handleEmail = () => {
+  const handleEmail = async () => {
     setTouched(true);
     if (!isValid) return;
-    const subject = encodeURIComponent(`Service booking — ${subsidiary.name}`);
+    await submitOrder();
+    const subject = encodeURIComponent(`Service request — ${service}`);
     const body = encodeURIComponent(buildMessage());
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
     <div className="rounded-3xl border border-line bg-panel p-7 sm:p-8">
-      <span className={`eyebrow ${accentText}`}>Book a service</span>
+      <span className="eyebrow text-orange">Request a service</span>
       <h3 className="mt-2 font-display text-2xl font-semibold text-snow">
-        Get {subsidiary.name} working on it
+        Tell us what you need
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate">{subsidiary.bookingNote}</p>
+      <p className="mt-2 text-sm leading-relaxed text-slate">
+        Fill in the form — we will save your request and you can also continue on WhatsApp or email.
+      </p>
 
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="mt-6 flex flex-col gap-4"
-      >
+      <form onSubmit={(e) => e.preventDefault()} className="mt-6 flex flex-col gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm font-medium text-snow">
             Full name
@@ -70,7 +92,7 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
+              className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
             />
           </label>
           <label className="flex flex-col gap-2 text-sm font-medium text-snow">
@@ -80,7 +102,7 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               placeholder="How should we reach you?"
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
+              className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
             />
           </label>
         </div>
@@ -91,60 +113,65 @@ export default function BookingForm({ subsidiary }: { subsidiary: Subsidiary }) 
             <select
               value={service}
               onChange={(e) => setService(e.target.value)}
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
+              className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
             >
-              {subsidiary.services.map((s) => (
-                <option key={s.title} value={s.title}>
-                  {s.title}
+              {services.map((s) => (
+                <option key={s.slug} value={s.name}>
+                  {s.name}
                 </option>
               ))}
             </select>
           </label>
           <label className="flex flex-col gap-2 text-sm font-medium text-snow">
-            Preferred date{" "}
-            <span className="font-normal text-mist">(optional)</span>
+            Preferred date (optional)
             <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className={`rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
+              className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
             />
           </label>
         </div>
 
         <label className="flex flex-col gap-2 text-sm font-medium text-snow">
-          Tell us more
+          Details
           <textarea
-            rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Any details that'll help us prepare..."
-            className={`resize-none rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors ${accentFocus}`}
+            rows={4}
+            placeholder="Describe your project or question"
+            className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none transition-colors focus:border-orange"
           />
         </label>
 
         {touched && !isValid && (
-          <p className="text-xs font-medium text-orange">
-            Please add your name and a phone number or email so we can reach you.
+          <p className="text-sm text-red-400">Name and contact are required.</p>
+        )}
+        {status === "ok" && (
+          <p className="text-sm text-orange">Request saved. Continue on WhatsApp or email if you like.</p>
+        )}
+        {status === "err" && (
+          <p className="text-sm text-amber-400">
+            Could not reach the server — you can still send via WhatsApp or email.
           </p>
         )}
 
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-2 flex flex-wrap gap-3">
           <button
             type="button"
             onClick={handleWhatsApp}
-            className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-[1.02] ${accentBg}`}
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white"
           >
             <FaWhatsapp size={16} />
-            Book via WhatsApp
+            WhatsApp
           </button>
           <button
             type="button"
             onClick={handleEmail}
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-semibold text-snow transition-colors hover:border-ink"
+            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm font-semibold text-snow hover:border-orange"
           >
             <FaEnvelope size={14} />
-            Book via email
+            Email
           </button>
         </div>
       </form>

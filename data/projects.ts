@@ -1,16 +1,28 @@
 export interface Project {
+  id?: string;
   title: string;
-  company: string;
+  service: string;
   category: string;
   description: string;
 }
 
-// TODO: replace with real project case studies — copy is placeholder
 export const projects: Project[] = [
-  { title: "", company: "Avionics", category: "Web application", description: "" },
-  { title: "", company: "SATI", category: "Gaming installation", description: "" },
-  { title: "", company: "KIDAINO", category: "Brand identity", description: "" },
-  { title: "", company: "COGNITA", category: "Analytics dashboard", description: "" },
-  { title: "", company: "SENTRYX", category: "Security audit", description: "" },
-  { title: "", company: "NEXORA", category: "Network infrastructure", description: "" },
+  {
+    title: "Business website rebuild",
+    service: "Web & Mobile Apps",
+    category: "Website",
+    description: "Modern marketing site with contact and service pages.",
+  },
+  {
+    title: "Managed hosting & email",
+    service: "Hosting Services",
+    category: "Infrastructure",
+    description: "Domain, SSL, hosting and business email setup.",
+  },
+  {
+    title: "Brand identity pack",
+    service: "Graphics Designing",
+    category: "Design",
+    description: "Logo, colours, typography and social templates.",
+  },
 ];

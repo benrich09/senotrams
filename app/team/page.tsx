@@ -4,7 +4,7 @@ import { founders, teamMembers } from "@/data/team";
 
 export const metadata: Metadata = {
   title: "Team | Senotrams Group",
-  description: "The people behind Avionics, SATI, KIDAINO, COGNITA, SENTRYX and NEXORA.",
+  description: "The people behind Senotrams digital services.",
 };
 
 export default function TeamPage() {
@@ -13,7 +13,7 @@ export default function TeamPage() {
       <PageHero
         eyebrow="The people"
         title="Meet the team."
-        description="Founded by two people, now built by a growing group across six subsidiaries."
+        description="Founded by two people, now built by a growing group across the team."
       />
 
       {/* Founders */}

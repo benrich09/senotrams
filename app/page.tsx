@@ -1,170 +1,136 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Lightbulb, Users, Sparkles } from "lucide-react";
 import Hero3D from "@/components/Hero3D";
-import SubsidiaryCard from "@/components/SubsidiaryCard";
-import { subsidiaries } from "@/data/subsidiaries";
+import ServiceCard from "@/components/ServiceCard";
+import { services } from "@/data/services";
 
 export default function Home() {
   return (
     <>
-      {/* ---------- Hero (unchanged) ---------- */}
-      <section className="relative flex h-screen min-h-[720px] w-full items-center overflow-hidden bg-ink text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(20,216,188,0.14),transparent_50%),radial-gradient(circle_at_80%_75%,rgba(56,189,248,0.16),transparent_50%)]" />
+      {/* Centered hero */}
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-ink text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(20,216,188,0.12),transparent_55%),radial-gradient(circle_at_80%_70%,rgba(56,189,248,0.12),transparent_45%)]" />
         <Hero3D />
-        <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-[0.15]" />
+        <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-[0.12]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-10">
-          <span className="eyebrow inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-white/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-orange" />
-            A group of companies, Tanzania
-          </span>
+        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 py-28 text-center md:px-10">
+         
 
-          <h1 className="mt-6 max-w-3xl font-display text-5xl font-bold leading-[0.98] sm:text-7xl md:text-8xl">
+          <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
             SENOTRAMS
           </h1>
-          <p className="eyebrow mt-3 text-orange">2026&nbsp;&nbsp;|&nbsp;&nbsp;Innovate&nbsp;&nbsp;|&nbsp;&nbsp;Build&nbsp;&nbsp;|&nbsp;&nbsp;Scale</p>
-
-          <p className="mt-6 max-w-xl text-base text-white/70 sm:text-lg">
-            One core. Six subsidiaries. Software &amp; products, digital services
-            &amp; gaming, marketing &amp; print, AI &amp; data, security, and IT
-            infrastructure — everything a business needs, built by one group.
+          <p className="eyebrow mt-4 text-orange">
+            2026&nbsp;&nbsp;|&nbsp;&nbsp;Innovate&nbsp;&nbsp;|&nbsp;&nbsp;Build&nbsp;&nbsp;|&nbsp;&nbsp;Scale
           </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+            Web &amp; mobile apps, hosting, design, animation, data, digital
+            marketing and content practical digital services for businesses
+            that want to move faster online.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/subsidiaries"
-              className="inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-ink transition-shadow duration-200 hover:shadow-[0_0_30px_rgba(20,216,188,0.45)]"
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_30px_rgba(20,216,188,0.4)]"
             >
-              Meet the companies
+              Explore services
               <ArrowRight size={16} />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/40"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:border-white/40"
             >
               Our story
             </Link>
           </div>
         </div>
-
-        <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 opacity-50 sm:flex">
-          <span className="eyebrow text-white/60">Scroll</span>
-          <div className="h-9 w-px bg-gradient-to-b from-white/60 to-transparent" />
-        </div>
       </section>
 
-      {/* ---------- About / How we started ---------- */}
-      <section className="relative overflow-hidden bg-paper px-6 py-24 md:px-10 md:py-32">
-        <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-orange/10 blur-[110px]" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-blue/10 blur-[110px]" />
-
-        <div className="relative mx-auto max-w-6xl">
-          <div className="grid gap-14 md:grid-cols-2 md:items-center">
-            {/* TODO: drop a founders / team photo here */}
-            <div className="order-2 md:order-1">
-              <div className="placeholder-frame relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[2rem] border border-line-light shadow-sm">
-                <span className="eyebrow px-6 text-center text-slate">
-                  Founders / team photo goes here
-                </span>
-                <div className={`pointer-events-none absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-orange/10 blur-2xl`} />
-              </div>
-            </div>
-
-            <div className="order-1 md:order-2">
-              <span className="eyebrow inline-flex items-center gap-2 rounded-full border border-line-light bg-paper-2 px-4 py-1.5 text-orange">
-                How we started
-              </span>
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-snow sm:text-4xl md:text-5xl">
-                A high-school idea, grouped into{" "}
-                <span className="text-gradient">six subsidiaries.</span>
-              </h2>
-              <p className="mt-6 max-w-lg text-base leading-relaxed text-slate">
-                Senotrams began as an idea between two friends, Benson Richard
-                and Wenseslaus Kidakule, back in high school. That idea grew
-                into a proper group of companies — each subsidiary focused on
-                a different craft, all sharing the same core.
-              </p>
-
-              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                {[
-                  { value: "6", label: "Subsidiaries" },
-                  { value: "2", label: "Founders" },
-                  { value: "1", label: "Shared core" },
-                  { value: "TZ", label: "Based in" },
-                ].map((stat) => (
-                  <div key={stat.label} className="rounded-2xl border border-line-light bg-paper-2 px-4 py-4">
-                    <p className="font-display text-2xl font-bold text-snow">{stat.value}</p>
-                    <p className="eyebrow mt-1 text-[10px] text-slate">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href="/about"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-orange hover:underline underline-offset-4"
-              >
-                Read the full story
-                <ArrowRight size={15} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Subsidiaries ---------- */}
-      <section className="bg-paper-2 px-6 py-24 md:px-10 md:py-32">
+      {/* Services */}
+      <section className="bg-paper px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-14 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-            <div className="max-w-xl">
-              <span className="eyebrow text-blue">The group</span>
-              <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl md:text-5xl">
-                Six subsidiaries, one core.
-              </h2>
-              <p className="mt-4 text-base text-slate">
-                Software &amp; AI, digital monitoring &amp; gaming, marketing &amp; print,
-                data &amp; AI, security &amp; auditing, and IT infrastructure — each
-                subsidiary opens its own page to explore and book services.
-              </p>
-            </div>
-            <Link
-              href="/subsidiaries"
-              className="whitespace-nowrap rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-snow transition-colors hover:border-orange hover:text-orange"
-            >
-              View all subsidiaries
-            </Link>
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow text-blue">What we offer</span>
+            <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl md:text-5xl">
+              Services built for clarity
+            </h2>
+            <p className="mt-4 text-base text-slate">
+              Each service has a simple path from brief to delivery. Pick what you need — or combine them.
+            </p>
           </div>
-
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {subsidiaries.map((subsidiary) => (
-              <SubsidiaryCard key={subsidiary.slug} subsidiary={subsidiary} />
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <ServiceCard key={s.slug} service={s} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ---------- CTA ---------- */}
-      <section className="relative overflow-hidden bg-ink px-6 py-24 text-white md:px-10 md:py-28">
-        <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-[0.15]" />
-        <div className="pointer-events-none absolute -top-20 left-1/4 h-72 w-72 rounded-full bg-blue/25 blur-[110px]" />
-        <div className="pointer-events-none absolute -bottom-20 right-1/4 h-72 w-72 rounded-full bg-orange/20 blur-[110px]" />
+      {/* Innovators */}
+      <section id="innovators" className="scroll-mt-24 bg-paper-2 px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <span className="eyebrow text-orange">Community</span>
+              <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
+                Connect with innovators
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-slate">
+                Builders, designers and founders are welcome. Share an idea, find collaborators,
+                or explore how Senotrams can support your next product.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {[
+                  { icon: Lightbulb, t: "Share product ideas", d: "Early concepts and prototypes" },
+                  { icon: Users, t: "Meet practitioners", d: "Dev, design and growth people" },
+                  { icon: Sparkles, t: "Ship together", d: "Partner on real client work" },
+                ].map((x) => (
+                  <li key={x.t} className="flex gap-3">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                      <x.icon size={16} />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-snow">{x.t}</p>
+                      <p className="text-sm text-slate">{x.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink"
+              >
+                Send a suggestion
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+            <div className="rounded-[2rem] border border-line-light bg-paper p-8 md:p-10">
+              <p className="font-display text-xl font-bold text-snow">How to plug in</p>
+              <ol className="mt-6 space-y-4 text-sm text-slate">
+                <li className="flex gap-3"><span className="font-mono text-orange">01</span> Tell us what you are building or learning</li>
+                <li className="flex gap-3"><span className="font-mono text-orange">02</span> We route you to the right service or conversation</li>
+                <li className="flex gap-3"><span className="font-mono text-orange">03</span> Stay in the loop for workshops and collabs</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
-          <span className="eyebrow text-orange">Let&rsquo;s build something</span>
-          <h2 className="font-display text-3xl font-bold leading-tight sm:text-5xl">
-            Got a project in mind for one of our subsidiaries?
-          </h2>
-          <p className="max-w-xl text-white/65">
-            Tell us what you need — software, AI, security, design, gaming, or
-            infrastructure — and we&rsquo;ll route it to the right team, or book
-            directly on the subsidiary&rsquo;s own page.
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-ink px-6 py-20 text-white md:px-10 md:py-24">
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+          <h2 className="font-display text-3xl font-bold sm:text-4xl">Ready when you are</h2>
+          <p className="mt-4 max-w-xl text-white/65">
+            Request a service, apply to a role, or leave a suggestion — we read every message.
           </p>
-          <Link
-            href="/contact"
-            className="mt-2 inline-flex items-center gap-2 rounded-full bg-orange px-8 py-4 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105"
-          >
-            Get in touch
-            <ArrowRight size={16} />
-          </Link>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link href="/services" className="rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink">
+              Browse services
+            </Link>
+            <Link href="/contact" className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white">
+              Share feedback
+            </Link>
+          </div>
         </div>
       </section>
     </>

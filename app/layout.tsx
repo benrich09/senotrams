@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { SiteChrome } from "@/components/SiteChrome";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -27,16 +25,27 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Senotrams Group — Software, AI, Security, Design & Digital Services",
+  title: "Senotrams — Web Apps, Hosting, Design & Digital Services",
   description:
-    "Senotrams Group is a Tanzanian group of six subsidiaries spanning software (Avionics), digital monitoring & gaming (SATI), marketing & print (KIDAINO), AI & data (COGNITA), security & auditing (SENTRYX) and IT infrastructure (NEXORA) — one core, six subsidiaries.",
+    "Senotrams delivers web & mobile apps, hosting, social media management, graphics, animation, data analysis, digital marketing and content creation in Tanzania.",
   keywords:
-    "Senotrams, Senotrams Group, Avionics, SATI, KIDAINO, COGNITA, SENTRYX, NEXORA, software development Tanzania, AI data science, cyber security, graphic design, digital marketing, gaming installations, WiFi services, cloud infrastructure, BRELA, RITA, NIDA",
+    "Senotrams, web development Tanzania, mobile apps, hosting, domain, VPS, graphic design, digital marketing, social media management, animation, data analysis, content creation, Dar es Salaam",
   openGraph: {
-    title: "Senotrams Group",
-    description: "One core. Six subsidiaries. Every digital need, covered.",
+    title: "Senotrams",
+    description: "Practical digital services for businesses in Tanzania.",
     type: "website",
+    url: "https://senotrams.co.tz",
+    images: [{ url: "/images/logo.jpeg" }],
   },
+  icons: {
+    icon: [
+      { url: "/images/logo.jpeg", sizes: "any" },
+      { url: "/images/logo.jpeg", type: "image/png", sizes: "32x32" },
+      { url: "/images/logo.jpeg", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: "/images/logo.jpeg", sizes: "180x180" }],
+  },
+
 };
 
 export default function RootLayout({
@@ -47,10 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable} ${jbMono.variable}`}>
       <body className="font-body bg-paper text-snow antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

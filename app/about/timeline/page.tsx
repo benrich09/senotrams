@@ -4,7 +4,7 @@ import { timeline } from "@/data/timeline";
 
 export const metadata: Metadata = {
   title: "Timeline | Senotrams Group",
-  description: "From a high-school idea to a group of six subsidiaries.",
+  description: "From a high-school idea to a digital services company.",
 };
 
 export default function TimelinePage() {
