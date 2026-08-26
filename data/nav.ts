@@ -1,33 +1,20 @@
-export interface NavSubItem {
-  label: string;
-  href: string;
-  description: string;
-}
-
 export interface NavItem {
   label: string;
   href: string;
-  dropdown?: NavSubItem[];
 }
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  {
-    label: "About",
-    href: "/about",
-    dropdown: [
-      { label: "About", href: "/about", description: "Our story and mission" },
-      { label: "Careers", href: "/about/careers", description: "Open roles" },
-      { label: "Team", href: "/team", description: "People behind Senotrams" },
-      { label: "Innovators", href: "/#innovators", description: "Connect with builders" },
-    ],
-  },
+  { label: "Innovators", href: "/innovators" },
+  { label: "About", href: "/about" },
+  { label: "Careers", href: "/about/careers" },
+  { label: "Team", href: "/team" },
+  { label: "Timeline", href: "/timeline" },
 ];
 
-export const contactItem: NavSubItem = {
+export const contactItem: NavItem = {
   label: "Contact",
   href: "/contact",
-  description: "Share ideas and recommendations",
 };

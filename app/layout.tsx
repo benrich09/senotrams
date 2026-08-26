@@ -25,27 +25,39 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Senotrams — Web Apps, Hosting, Design & Digital Services",
+  title: {
+    default: "Senotrams",
+    template: "%s | Senotrams",
+  },
   description:
-    "Senotrams delivers web & mobile apps, hosting, social media management, graphics, animation, data analysis, digital marketing and content creation in Tanzania.",
+    "Senotrams delivers software development, hosting, design, animation, data analysis, digital marketing and content creation in Tanzania.",
   keywords:
-    "Senotrams, web development Tanzania, mobile apps, hosting, domain, VPS, graphic design, digital marketing, social media management, animation, data analysis, content creation, Dar es Salaam",
+    "Senotrams, software development Tanzania, web apps, mobile apps, hosting, domain, VPS, graphic design, digital marketing, content creation, Dar es Salaam",
   openGraph: {
     title: "Senotrams",
     description: "Practical digital services for businesses in Tanzania.",
     type: "website",
     url: "https://senotrams.co.tz",
-    images: [{ url: "/images/logo.jpeg" }],
+    siteName: "Senotrams",
+    images: [{ url: "/images/logo-round.png", width: 512, height: 512, alt: "Senotrams" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Senotrams",
+    description: "Practical digital services for businesses in Tanzania.",
+    images: ["/images/logo-round.png"],
   },
   icons: {
     icon: [
-      { url: "/images/logo.jpeg", sizes: "any" },
-      { url: "/images/logo.jpeg", type: "image/png", sizes: "32x32" },
-      { url: "/images/logo.jpeg", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
     ],
-    apple: [{ url: "/images/logo.jpeg", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-
+  metadataBase: new URL("https://senotrams.co.tz"),
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://senotrams.co.tz" },
 };
 
 export default function RootLayout({

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard,
@@ -14,6 +15,7 @@ import {
   Menu,
   X,
   ChevronRight,
+  Lightbulb,
 } from "lucide-react";
 import { clearToken } from "@/lib/api";
 
@@ -22,6 +24,7 @@ const links = [
   { href: "/admin/careers", label: "Careers", icon: Briefcase },
   { href: "/admin/applications", label: "Applications", icon: UserRoundSearch },
   { href: "/admin/orders", label: "Orders", icon: Inbox },
+  { href: "/admin/innovators", label: "Innovators", icon: Lightbulb },
   { href: "/admin/suggestions", label: "Suggestions", icon: MessageSquareQuote },
 ];
 
@@ -72,8 +75,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }`}
       >
         <div className="flex h-14 items-center justify-between border-b border-white/10 px-4 sm:h-16 sm:px-5">
-          <Link href="/admin" className="font-display text-lg font-bold text-white sm:text-xl" onClick={() => setOpen(false)}>
-            {SITE_NAME}
+          <Link href="/admin" className="flex items-center gap-2" onClick={() => setOpen(false)} aria-label={SITE_NAME}>
+           <h1 className="text-2xl font-bold">
+            Admin Senotrams
+          </h1>
+           
           </Link>
           <button type="button" className="rounded-lg p-2 text-white/60 hover:bg-white/5 lg:hidden" onClick={() => setOpen(false)} aria-label="Close menu">
             <X size={20} />
