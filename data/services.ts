@@ -152,7 +152,7 @@ export const services: ServiceItem[] = [
     howItWorks: ["Script / storyboard", "Style frames", "Animation", "Sound & export"],
     features: ["2D motion", "Explainers", "Social ads", "Logo intros"],
     bookingNote: "Share length, platform and message.",
-    techStacks: ["After Effects", "Premiere Pro", "Illustrator", "Lottie (optional)"],
+    techStacks: ["After Effects", "Premiere Pro", "Illustrator", "Lottie", "ToonBoom Harmony", "Moho14", "Clip Studio Pro"],
   },
   {
     slug: "data-analysis",
@@ -165,7 +165,7 @@ export const services: ServiceItem[] = [
     howItWorks: ["Define questions", "Collect & clean", "Analyse", "Present insights"],
     features: ["Surveys", "Cleaning", "Reports", "Dashboards"],
     bookingNote: "What decision are you trying to support?",
-    techStacks: ["Excel / Google Sheets", "Python (pandas)", "SQL", "Dashboard tools"],
+    techStacks: ["Excel / Google Sheets", "koboToolBox","Survey CTO","Python (pandas)","Power BI", "SQL", "Dashboard tools"],
   },
   {
     slug: "digital-marketing",
