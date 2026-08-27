@@ -1,4 +1,4 @@
-export type Accent = "orange" | "blue";
+export type Accent = "orange" | "blue" | "green";
 
 export interface ServiceItem {
   slug: string;
@@ -192,6 +192,32 @@ export const services: ServiceItem[] = [
     features: ["Website copy", "Blog articles", "Social captions", "Email sequences", "Brand voice guides"],
     bookingNote: "What content do you need first?",
     techStacks: ["Editorial workflows", "SEO basics", "CMS (WordPress / headless)", "Brand guidelines"],
+  },
+   {
+    slug: "ICT Maintanance and Support ",
+    monogram: "MS",
+    name: "ICT Maintenance and Support",
+    tagline: "Keeping your systems running",
+    accent: "blue",
+    description: "Proactive maintenance and support for your ICT infrastructure.",
+    longDescription: "We ensure your ICT systems are always up and running with our proactive maintenance and support services.",
+    howItWorks: ["Brand voice & goals", "Outline", "Draft", "Edit & publish-ready files"],
+    features: ["Website copy", "Blog articles", "Social captions", "Email sequences", "Brand voice guides"],
+    bookingNote: "What content do you need first?",
+    techStacks: ["Editorial workflows", "SEO basics", "CMS (WordPress / headless)", "Brand guidelines"],
+  },
+   {
+    slug: "Cloud Services",
+    monogram: "CS",
+    name: "Cloud Services",
+    tagline: "Scalable solutions for your business",
+    accent: "green",
+    description: "Managed cloud solutions for seamless integration and scalability.",
+    longDescription: "We provide comprehensive cloud services to help your business scale efficiently and securely.",
+    howItWorks: ["Assess needs", "Design solution", "Deploy", "Monitor & optimise"],
+    features: ["Infrastructure as Code", "Automated Scaling", "Disaster Recovery", "Security Management", "Performance Monitoring"],
+    bookingNote: "Tell us about your cloud requirements.",
+    techStacks: ["AWS", "Azure", "Google Cloud", "Kubernetes", "Docker"],
   },
 ];
 
