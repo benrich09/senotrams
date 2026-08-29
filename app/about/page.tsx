@@ -22,30 +22,32 @@ export default function AboutPage() {
           <h2 className="font-display text-2xl font-bold text-snow md:text-3xl">Our story</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
             <p>
-              Senotrams was founded by three partners who saw the same gap:<br/>
+              Senotrams was founded by after seeing the gap for:<br/>
               Businesses needed reliable digital work websites, apps, branding and  growth without the confusion
-              of juggling many disconnected vendors.
+              of many disconnected vendors.
             </p>
 
             <p>
-              They set out to build a single studio where software development, design, animation,
+              Senotrams is set out to build a single studio where software development, design, animation,
               hosting, content and  marketing could be planned and delivered together.<br/>
             </p>
 
             <p>
             The goal was simple:
             <ul>
-              <li>clear offers</li>
-              <li>practical delivery</li>
-              <li>long-term support</li>
-            </ul>
+              <li>Help businesses grow with digital solutions</li>
+              <li>Create products for businesses and customers</li>
+              <li>Help businesses move faster online</li>
+              <li>Help innovate and stay ahead of the curve</li>
+              <li>Help innovators make a difference</li>
+            </ul>Help businesses move faster online
             </p>
 
             <p>
               Today Senotrams helps organisations across Tanzania and beyond launch products, stay
               online and  tell their story.
               <br/>
-              The three Co-founders still lead the core disciplines software, visual craft and  digital marketing so every engagement stays close to the
+              Senotrams still lead the core disciplines software, visual craft and  digital marketing so every engagement stays close to the
               people who ship the work.
             </p>
           </div>
@@ -57,10 +59,10 @@ export default function AboutPage() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <span className="eyebrow text-orange">Leadership</span>
-              <h2 className="mt-2 font-display text-2xl font-bold text-snow md:text-3xl">Co-founders</h2>
+              <h2 className="mt-2 font-display text-2xl font-bold text-snow md:text-3xl">Co-founder</h2>
             </div>
             <Link href="/team" className="text-sm font-semibold text-orange hover:underline">
-              Full team page →
+              Full team page
             </Link>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">

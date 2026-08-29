@@ -22,7 +22,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Our work"
         title="Outcomes we optimise for."
-        description="Projects are curated manually. Here is the shape of work we take on request a similar engagement from Services."
+        description="Here is the shape of work we take on request a similar engagement from Services."
       />
       <section className="px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -13,7 +13,7 @@ export default function TeamPage() {
       <PageHero
         eyebrow="Team"
         title="The people behind Senotrams."
-        description="All three members are co-founders. Each leads a core practice of the studio."
+        description="Members of the team elavating to Success."
       />
       <section className="px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">

@@ -49,7 +49,7 @@ export default function InnovatorsPage() {
       <PageHero
         eyebrow="Innovators"
         title="A place for builders."
-        description="Share ideas, meet practitioners and  find partners   design, software, or growth."
+        description="Share ideas, meet your innovaters and find partners in design, software, or growth."
       />
       <section className="px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">

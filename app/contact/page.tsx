@@ -67,7 +67,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="We’re here to help."
-        description="Ask a question, request support, or share a suggestion. Prefer a quick chat? Use WhatsApp, email, or call us."
+        description="Ask a question, request support or share a suggestion. Prefer a quick chat? Use WhatsApp, email, or call us."
       />
 
       <section className="px-6 py-16 md:px-10 md:py-20">

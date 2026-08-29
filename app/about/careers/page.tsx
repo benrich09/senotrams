@@ -65,7 +65,7 @@ export default function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title="Build with us."
-        description="Open roles are managed from the admin dashboard and shown here live."
+        description="Join our team and help us shape the future of technology."
       />
       <section className="px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
