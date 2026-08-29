@@ -16,7 +16,7 @@ export default function PageHero({ eyebrow, title, description }: PageHeroProps)
         <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl">
           {title}
         </h1>
-        {description && (-
+        {description && (
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/65 sm:text-lg">{description}</p>
         )}
       </div>
