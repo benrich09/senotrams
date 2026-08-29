@@ -194,7 +194,7 @@ export const services: ServiceItem[] = [
     techStacks: ["Editorial workflows", "SEO basics", "CMS (WordPress / headless)", "Brand guidelines"],
   },
    {
-    slug: "ICT Maintanance and Support ",
+    slug: "ICT-Maintanance-and-Support ",
     monogram: "MS",
     name: "ICT Maintenance and Support",
     tagline: "Keeping your systems running",
@@ -207,7 +207,7 @@ export const services: ServiceItem[] = [
     techStacks: ["Editorial workflows", "SEO basics", "CMS (WordPress / headless)", "Brand guidelines"],
   },
    {
-    slug: "Cloud Services",
+    slug: "Cloud-Services",
     monogram: "CS",
     name: "Cloud Services",
     tagline: "Scalable solutions for your business",
