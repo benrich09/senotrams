@@ -40,7 +40,7 @@ export default function Footer() {
               Senotrams
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-mist">
-              Software development, hosting, design, marketing, data and content —
+              Software development, hosting, design, marketing, data and content 
               digital services for businesses in Tanzania.
             </p>
 
