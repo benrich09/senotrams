@@ -24,7 +24,7 @@ const PM_STEPS = [
   {
     step: "02",
     title: "Plan & design",
-    text: "Timelines, milestones, wireframes or creative direction — agreed before heavy build work begins.",
+    text: "Timelines, milestones, wireframes or creative direction  agreed before heavy build work begins.",
     icon: PenLine,
   },
   {
@@ -190,7 +190,7 @@ export default function Home() {
               Tools and technologies we use
             </h2>
             <p className="mt-4 text-base text-slate">
-              Practical tools matched to the job — software, design, hosting and  growth.
+              Practical tools matched to the job  software, design, hosting and  growth.
             </p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -309,7 +309,7 @@ export default function Home() {
         <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Ready when you are</h2>
           <p className="mt-4 max-w-xl text-white/65">
-            Request a service, apply to a role, or leave a suggestion — we read every message.
+            Request a service, apply to a role, or leave a suggestion  we read every message.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

@@ -5,7 +5,7 @@ import { team } from "@/data/team";
 
 export const metadata: Metadata = {
   title: "About | Senotrams",
-  description: "The story of Senotrams — co-founders building practical digital services in Tanzania.",
+  description: "The story of Senotrams co-founders building practical digital services in Tanzania.",
 };
 
 export default function AboutPage() {
