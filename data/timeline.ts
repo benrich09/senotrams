@@ -10,7 +10,7 @@ export const timeline: TimelineEntry[] = [
     year: "2022 High school",
     title: "Just an idea",
     description:
-      "Started sketching the idea that would become Senotrams — long before it was a company.",
+      "Started sketching the idea that would become Senotrams   long before it was a company.",
   },
   {
     year: "2023 Naming",

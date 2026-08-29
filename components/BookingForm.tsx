@@ -187,7 +187,7 @@ export default function BookingForm({
           <p className="text-sm text-red-400">Could not reach the server — still open WhatsApp or email.</p>
         )}
 
-        <div className="mt-2 flex flex-wrap gap-3">
+        <div className="display-flex items-center mt-2 flex flex-wrap gap-3">
           <button
             type="button"
             onClick={handleSend}

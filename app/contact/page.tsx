@@ -227,7 +227,7 @@ export default function ContactPage() {
               </label>
 
               {status === "ok" && (
-                <p className="text-sm text-orange">Thank you — your message was received.</p>
+                <p className="text-sm text-orange">Thank you   your message was received.</p>
               )}
               {status === "err" && <p className="text-sm text-red-400">{error}</p>}
 

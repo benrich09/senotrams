@@ -13,7 +13,7 @@ export default function TimelinePage() {
       <PageHero
         eyebrow="Milestones"
         title="From notebook to group."
-        description="A rough sketch of how Senotrams got here — dates are placeholders for you to fill in."
+        description="A rough sketch of how Senotrams got here dates are placeholders for you to fill in."
       />
 
       <section className="px-6 py-20 md:px-10 md:py-28">

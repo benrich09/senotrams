@@ -9,13 +9,13 @@ type Row = { domain: string; status: "available" | "taken" | "unknown" | "checki
 
 async function checkDomain(domain: string): Promise<Row> {
   try {
-    // Google Public DNS — NXDOMAIN often means not in DNS (likely free / not configured)
+    // Google Public DNS   NXDOMAIN often means not in DNS (likely free / not configured)
     const res = await fetch(
       `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=NS`,
       { cache: "no-store" }
     );
     if (!res.ok) {
-      return { domain, status: "unknown", note: "Could not check — we can verify for you" };
+      return { domain, status: "unknown", note: "Could not check   we can verify for you" };
     }
     const data = (await res.json()) as { Status?: number; Answer?: unknown[] };
     // 0 = NOERROR (records exist → usually taken / in use)
@@ -27,11 +27,11 @@ async function checkDomain(domain: string): Promise<Row> {
       return { domain, status: "taken", note: "In use / registered (has DNS)" };
     }
     if (data.Status === 0) {
-      return { domain, status: "taken", note: "Resolves — treat as taken" };
+      return { domain, status: "taken", note: "Resolves   treat as taken" };
     }
-    return { domain, status: "unknown", note: "Unclear — we will confirm before register" };
+    return { domain, status: "unknown", note: "Unclear   we will confirm before register" };
   } catch {
-    return { domain, status: "unknown", note: "Network error — try again or ask us" };
+    return { domain, status: "unknown", note: "Network error   try again or ask us" };
   }
 }
 
@@ -61,7 +61,7 @@ export default function DomainSearch() {
   return (
     <div className="rounded-2xl border border-line-light bg-paper-2 p-5">
       <p className="mb-3 text-xs text-slate">
-        Live DNS check (not a legal WHOIS). “Available” means no public DNS found — we confirm before registration.
+        Live DNS check (not a legal WHOIS). “Available” means no public DNS found   we confirm before registration.
       </p>
       <form onSubmit={onSearch} className="flex flex-col gap-3 sm:flex-row">
         <input

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   FaWhatsapp,
-  FaPhone,          // ← changed from FaPhoneAlt
+  FaPhone,
   FaEnvelope,
   FaLinkedinIn,
   FaInstagram,
@@ -24,6 +24,11 @@ const SOCIAL = [
     : []),
 ].filter((s) => Boolean(s.href));
 
+// Split into two balanced columns (≈5 each)
+const mid = Math.ceil(services.length / 2);
+const leftServices = services.slice(0, mid);
+const rightServices = services.slice(mid);
+
 export default function Footer() {
   return (
     <footer className="bg-ink px-6 py-14 text-white md:px-10">
@@ -35,11 +40,10 @@ export default function Footer() {
               Senotrams
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-mist">
-              Software development, hosting, design, marketing, data and content
-              — digital services for businesses in Tanzania.
+              Software development, hosting, design, marketing, data and content —
+              digital services for businesses in Tanzania.
             </p>
 
-            {/* Social icons under Senotrams */}
             {SOCIAL.length > 0 && (
               <div className="mt-5 flex flex-wrap gap-3">
                 {SOCIAL.map((s) => {
@@ -61,10 +65,12 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Services */}
+          {/* Services – two balanced columns on desktop */}
           <div>
             <h4 className="eyebrow text-white/50">Services</h4>
-            <ul className="mt-4 flex flex-col gap-2.5">
+
+            {/* Mobile: single list */}
+            <ul className="mt-4 flex flex-col gap-2.5 md:hidden">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
@@ -76,6 +82,34 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+
+            {/* Desktop: two equal columns */}
+            <div className="mt-4 hidden gap-8 md:grid md:grid-cols-2">
+              <ul className="flex flex-col gap-2.5">
+                {leftServices.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="text-sm text-mist transition-colors hover:text-orange"
+                    >
+                      {s.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="flex flex-col gap-2.5">
+                {rightServices.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="text-sm text-mist transition-colors hover:text-orange"
+                    >
+                      {s.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Contact */}

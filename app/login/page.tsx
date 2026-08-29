@@ -45,7 +45,7 @@ function LoginForm() {
     const { data } = await sb.auth.getSession();
     const access = data.session?.access_token;
     if (!access) {
-      setError("No Supabase session — sign in with a provider first");
+      setError("No Supabase session sign in with a provider first");
       return;
     }
     setToken(access);

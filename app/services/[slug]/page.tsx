@@ -127,10 +127,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           )}
         </div>
 
-        {/* Request form — always last */}
+        {/* Request form */}
         <div className="mx-auto mt-16 max-w-3xl border-t border-line-light pt-16">
-          <h2 className="font-display text-2xl font-bold text-snow">Request this service</h2>
-          <p className="mt-2 text-sm text-slate">{service.bookingNote}</p>
+          <h2 className="text-center font-display text-2xl font-bold text-snow">Request this service</h2>
+          <p className="text-center mt-2 text-sm text-slate">{service.bookingNote}</p>
           <div className="mt-6">
             <BookingForm defaultService={service.name} />
           </div>

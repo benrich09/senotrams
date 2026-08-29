@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 export default function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/000000000000?text=Hello Senotrams, I need your services!" /* TODO: replace with your real WhatsApp number */
+      href="https://wa.me/+255746795020\?text=Hello Senotrams, I need your services!" /* TODO: replace with your real WhatsApp number */
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

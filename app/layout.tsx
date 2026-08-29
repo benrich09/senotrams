@@ -27,15 +27,15 @@ const jbMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: {
     default: "Senotrams",
-    template: "%s | Senotrams",
+    template: "%s ",
   },
   description:
-    "Senotrams delivers software development, hosting, design, animation, data analysis, digital marketing and content creation in Tanzania.",
+    "Senotrams delivers software development, hosting, design & animation, data analysis and digital marketing  in Tanzania.",
   keywords:
     "Senotrams, software development Tanzania, web apps, mobile apps, hosting, domain, VPS, graphic design, digital marketing, content creation, Dar es Salaam",
   openGraph: {
     title: "Senotrams",
-    description: "Practical digital services for businesses in Tanzania.",
+    description: "Digital services for businesses in Tanzania.",
     type: "website",
     url: "https://senotrams.co.tz",
     siteName: "Senotrams",

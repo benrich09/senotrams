@@ -18,7 +18,7 @@ const PM_STEPS = [
   {
     step: "01",
     title: "Discover",
-    text: "We clarify goals, users, scope, and success metrics so the project starts with a shared plan.",
+    text: "We clarify goals, users, scope and  success metrics so the project starts with a shared plan.",
     icon: Search,
   },
   {
@@ -30,19 +30,19 @@ const PM_STEPS = [
   {
     step: "03",
     title: "Build",
-    text: "Work in short cycles with visible progress, demos, and feedback so nothing ships in the dark.",
+    text: "Work in short cycles with visible progress, demos and  feedback so nothing ships in the dark.",
     icon: Code2,
   },
   {
     step: "04",
     title: "Launch",
-    text: "Deploy, test, train your team, and hand over documentation so you can run day to day.",
+    text: "Deploy, test, train your team and  hand over documentation so you can run day to day.",
     icon: Rocket,
   },
   {
     step: "05",
     title: "Support & grow",
-    text: "Fixes, improvements, and new features as your business needs change.",
+    text: "Fixes, improvements and  new features as your business needs change.",
     icon: LifeBuoy,
   },
 ];
@@ -69,14 +69,14 @@ const TOOLS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Senotrams took our idea from a rough brief to a working web app. Clear steps, regular updates, and no jargon.",
+      "Senotrams took our idea from a rough brief to a working web app. Clear steps, regular updates and  no jargon.",
     name: "Client, Dar es Salaam",
     role: "Business owner",
     service: "Software Development",
   },
   {
     quote:
-      "They handled our domain, hosting, and email setup quickly. We finally look professional online.",
+      "They handled our domain, hosting and  email setup quickly. We finally look professional online.",
     name: "Operations lead",
     role: "SME",
     service: "Hosting Services",
@@ -120,10 +120,10 @@ export default function Home() {
               <ArrowRight size={16} />
             </Link>
             <Link
-              href="/about"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:border-white/40"
             >
-              Our story
+            Get in Touch
             </Link>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function Home() {
               Services built for clarity
             </h2>
             <p className="mt-4 text-base text-slate">
-              Each service has a simple path from brief to delivery. Explore one — or combine several.
+              Each service has a simple path from brief to delivery. 
             </p>
           </div>
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -158,7 +158,7 @@ export default function Home() {
               Steps in project management
             </h2>
             <p className="mt-4 text-base text-slate">
-              A clear path from first conversation to launch — so you always know what happens next.
+              A clear path from first conversation to launch so you always know what happens next.
             </p>
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -190,7 +190,7 @@ export default function Home() {
               Tools and technologies we use
             </h2>
             <p className="mt-4 text-base text-slate">
-              Practical tools matched to the job — software, design, hosting, and growth.
+              Practical tools matched to the job — software, design, hosting and  growth.
             </p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -220,7 +220,7 @@ export default function Home() {
               What clients say about our services
             </h2>
             <p className="mt-4 text-base text-slate">
-              Real outcomes from software, hosting, design, and content work.
+              Real outcomes from software, hosting, design and  content work.
             </p>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -255,7 +255,7 @@ export default function Home() {
                 Connect with innovators
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate">
-                Builders, designers and founders are welcome. Share an idea, find collaborators, or
+                Builders, designers and founders are welcom to Share an idea, find collaborators or
                 explore how Senotrams can support your next product.
               </p>
               <ul className="mt-8 space-y-4">
@@ -322,7 +322,7 @@ export default function Home() {
               href="/contact"
               className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white"
             >
-              Contact us
+              Get in touch
             </Link>
           </div>
         </div>

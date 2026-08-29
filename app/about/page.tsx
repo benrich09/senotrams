@@ -14,7 +14,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Built to help businesses move faster online."
-        description="Senotrams is a digital services company focused on software, design, marketing, and infrastructure that teams can actually use."
+        description="Senotrams is a digital services company focused on software, design, marketing and  infrastructure that teams can actually use."
       />
 
       <section className="px-6 py-16 md:px-10 md:py-24">
@@ -22,19 +22,30 @@ export default function AboutPage() {
           <h2 className="font-display text-2xl font-bold text-snow md:text-3xl">Our story</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
             <p>
-              Senotrams was founded by three partners who saw the same gap: businesses needed
-              reliable digital work — websites, apps, branding, and growth — without the confusion
+              Senotrams was founded by three partners who saw the same gap:<br/>
+              Businesses needed reliable digital work websites, apps, branding and  growth without the confusion
               of juggling many disconnected vendors.
             </p>
+
             <p>
               They set out to build a single studio where software development, design, animation,
-              hosting, content, and marketing could be planned and delivered together. The goal was
-              simple: clear offers, practical delivery, and long-term support.
+              hosting, content and  marketing could be planned and delivered together.<br/>
             </p>
+
+            <p>
+            The goal was simple:
+            <ul>
+              <li>clear offers</li>
+              <li>practical delivery</li>
+              <li>long-term support</li>
+            </ul>
+            </p>
+
             <p>
               Today Senotrams helps organisations across Tanzania and beyond launch products, stay
-              online, and tell their story. The three co-founders still lead the core disciplines —
-              software, visual craft, and digital marketing — so every engagement stays close to the
+              online and  tell their story.
+              <br/>
+              The three Co-founders still lead the core disciplines software, visual craft and  digital marketing so every engagement stays close to the
               people who ship the work.
             </p>
           </div>

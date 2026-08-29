@@ -49,13 +49,13 @@ export default function InnovatorsPage() {
       <PageHero
         eyebrow="Innovators"
         title="A place for builders."
-        description="Share ideas, meet practitioners, and find partners — design, software, or growth."
+        description="Share ideas, meet practitioners and  find partners   design, software, or growth."
       />
       <section className="px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
           {[
             { icon: Lightbulb, t: "Share ideas", d: "Pitch early concepts and problems worth solving." },
-            { icon: Users, t: "Meet people", d: "Connect with developers, designers, and marketers." },
+            { icon: Users, t: "Meet people", d: "Connect with developers, designers and  marketers." },
             { icon: Sparkles, t: "Ship together", d: "Collaborate with Senotrams as delivery partner." },
           ].map((x) => (
             <div key={x.t} className="rounded-3xl border border-line-light bg-paper-2 p-6">
@@ -99,7 +99,7 @@ export default function InnovatorsPage() {
               Your idea *
               <textarea required rows={5} value={idea} onChange={(e) => setIdea(e.target.value)} placeholder="What are you building or looking to collaborate on?" className="rounded-xl border border-line bg-paper-2 px-4 py-3 text-sm text-snow outline-none focus:border-orange" />
             </label>
-            {status === "ok" && <p className="text-sm text-orange">Thanks — we received your submission.</p>}
+            {status === "ok" && <p className="text-sm text-orange">Thanks   we received your submission.</p>}
             {status === "err" && <p className="text-sm text-red-400">{error}</p>}
             <button type="submit" disabled={status === "sending"} className="inline-flex items-center justify-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink disabled:opacity-60">
               <Send size={18} />

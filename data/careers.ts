@@ -35,6 +35,6 @@ export const values = [
   {
     title: "Start small, think big",
     description:
-      "Senotrams started as a notebook idea in high school — we still build that way.",
+      "Senotrams started as a notebook idea in high school we still build that way.",
   },
 ];
