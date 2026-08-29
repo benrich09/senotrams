@@ -193,8 +193,8 @@ export const services: ServiceItem[] = [
     bookingNote: "What content do you need first?",
     techStacks: ["Editorial workflows", "SEO basics", "CMS (WordPress / headless)", "Brand guidelines"],
   },
-   {
-    slug: "ICT-Maintanance-and-Support ",
+  {
+    slug: "ict-maintenance-and-support",
     monogram: "MS",
     name: "ICT Maintenance and Support",
     tagline: "Keeping your systems running",
@@ -206,8 +206,8 @@ export const services: ServiceItem[] = [
     bookingNote: "What content do you need first?",
     techStacks: ["Editorial workflows", "SEO basics", "CMS (WordPress / headless)", "Brand guidelines"],
   },
-   {
-    slug: "Cloud-Services",
+  {
+    slug: "cloud-services",
     monogram: "CS",
     name: "Cloud Services",
     tagline: "Scalable solutions for your business",
