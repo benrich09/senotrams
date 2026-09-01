@@ -40,7 +40,7 @@ export default function AboutPage() {
               <li>Help businesses move faster online</li>
               <li>Help innovate and stay ahead of the curve</li>
               <li>Help innovators make a difference</li>
-            </ul>Help businesses move faster online
+            </ul>
             </p>
 
             <p>
