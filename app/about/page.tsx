@@ -1,79 +1,61 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { team } from "@/data/team";
 
 export const metadata: Metadata = {
   title: "About | Senotrams",
-  description: "The story of Senotrams co-founders building practical digital services in Tanzania.",
+  description: "Who we are and how we work.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="bg-paper">
+    <div className="bg-gradient-to-b from-[#f7fafc] to-white">
       <PageHero
-        eyebrow="About"
-        title="Built to help businesses move faster online."
-        description="Senotrams is a digital services company focused on software, design, marketing and  infrastructure that teams can actually use."
+        eyebrow=""
+        title="Design and development with clarity"
+        description="Senotrams helps businesses and innovators across Tanzania and East Africa turn ideas into working digital products."
       />
 
       <section className="px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-snow md:text-3xl">Our story</h2>
-          <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
+          <h2 className="font-display text-2xl font-bold text-snow sm:text-3xl">Our story</h2>
+          <div className="mt-6 space-y-5 text-base leading-relaxed text-slate">
             <p>
-              Senotrams was founded by after seeing the gap for:<br/>
-              Businesses needed reliable digital work websites, apps, branding and  growth without the confusion
-              of many disconnected vendors.
+              Senotrams started with a simple belief: good digital work should be clear, practical and within reach of businesses that want to grow.
             </p>
-
             <p>
-              Senotrams is set out to build a single studio where software development, design, animation,
-              hosting, content and  marketing could be planned and delivered together.<br/>
+              We combine software development, design, hosting and growth services under one roof so clients do not have to juggle multiple vendors. From the first conversation to launch and support, we keep the process transparent and the costs labeled.
             </p>
-
             <p>
-            The goal was simple:
-            <ul>
-              <li>Help businesses grow with digital solutions</li>
-              <li>Create products for businesses and customers</li>
-              <li>Help businesses move faster online</li>
-              <li>Help innovate and stay ahead of the curve</li>
-              <li>Help innovators make a difference</li>
-            </ul>
-            </p>
-
-            <p>
-              Today Senotrams helps organisations across Tanzania and beyond launch products, stay
-              online and  tell their story.
-              <br/>
-              Senotrams still lead the core disciplines software, visual craft and  digital marketing so every engagement stays close to the
-              people who ship the work.
+              Alongside commercial work we partner with innovators who have strong ideas but limited technical knowledge or budget. In those cases we stay as a collaborator, helping shape and build the product while the founder keeps ownership.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="border-t border-line-light bg-paper-2 px-6 py-16 md:px-10 md:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <span className="eyebrow text-orange">Leadership</span>
-              <h2 className="mt-2 font-display text-2xl font-bold text-snow md:text-3xl">Co-founder</h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-line-light bg-white p-6 shadow-sm">
+              <h3 className="font-display text-lg font-bold text-snow">What we value</h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate">
+                <li>Clear communication over jargon</li>
+                <li>Labeled costs before work starts</li>
+                <li>Working software and design that ships</li>
+                <li>Long-term partnership where it makes sense</li>
+              </ul>
             </div>
-            <Link href="/team" className="text-sm font-semibold text-orange hover:underline">
-              Full team page
-            </Link>
+            <div className="rounded-2xl border border-line-light bg-white p-6 shadow-sm">
+              <h3 className="font-display text-lg font-bold text-snow">Where we work</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate">
+                Based in Tanzania, serving clients across East Africa. Remote collaboration is standard; on-site support is available for selected projects.
+              </p>
+            </div>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {team.map((m) => (
-              <article key={m.name} className="rounded-3xl border border-line-light bg-paper p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-orange">{m.role}</p>
-                <h3 className="mt-2 font-display text-xl font-bold text-snow">{m.name}</h3>
-                <p className="mt-1 text-sm text-slate">{m.focus}</p>
-                <p className="mt-3 text-sm leading-relaxed text-slate">{m.bio}</p>
-              </article>
-            ))}
+
+          <div className="mt-12 flex flex-wrap gap-3">
+            <Link href="/team" className="rounded-full bg-orange px-5 py-2.5 text-sm font-semibold text-ink">
+              Meet the team
+            </Link>
+            <Link href="/contact" className="rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-snow">
+              Get in touch
+            </Link>
           </div>
         </div>
       </section>

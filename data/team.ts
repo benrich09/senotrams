@@ -43,3 +43,17 @@ export const team: TeamMember[] = [
     bio: "Builds and maintains web and software systems, contributing to the technical delivery of Senotrams’ products and client projects.",
   },
 ];
+export interface Partner {
+  name: string;
+  description: string;
+  logo?: string;
+  url?: string;
+}
+
+export const partners: Partner[] = [
+  {
+    name: "All Access",
+    description: "Customer experience outsourcing across Tanzania and East Africa. Call centre, WhatsApp support, social media management and training.",
+    logo: "/images/partner-allaccess.jpeg",
+  },
+];

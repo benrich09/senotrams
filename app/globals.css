@@ -6,31 +6,30 @@
    / blue (secondary, the "group" color that ties companies together).
    ============================================================ */
 @theme {
-  /* NavikX-inspired dark teal theme.
-     Note: --color-orange now holds the TEAL accent (class names like
-     text-orange stayed the same across the site; only the value changed). */
-  --color-ink: #041012;
-  --color-ink-2: #06181c;
-  --color-ink-3: #0a2126;
-  --color-paper: #06181c;
-  --color-paper-2: #0a2126;
-  --color-panel: #0c262c;
-  --color-line: #1c3a40;
-  --color-line-light: #163038;
+  /* Senotrams — logo cyan/blue + premium light sections for elegance & white space.
+     Primary action stays cyan; dark only for hero/intro/impact sections. */
+  --color-ink: #0a1628;
+  --color-ink-2: #0f1f38;
+  --color-ink-3: #152a4a;
+  --color-paper: #ffffff;             /* clean white — easy on the eyes */
+  --color-paper-2: #f4f8fb;
+  --color-panel: #ffffff;
+  --color-line: #d0dce8;
+  --color-line-light: #e2eaf2;
 
-  --color-snow: #ecfdf8;
-  --color-mist: #7da8a1;
+  --color-snow: #0a1628;           /* dark text on light */
+  --color-mist: #5a7190;
 
-  --color-orange: #14d8bc;
-  --color-orange-2: #4ff0d8;
-  --color-orange-soft: #0e3c37;
+  --color-orange: #00c4b8;         /* logo cyan primary action */
+  --color-orange-2: #2dd4bf;
+  --color-orange-soft: #ccfbf1;
 
-  --color-blue: #38bdf8;
-  --color-blue-2: #7dd3fc;
-  --color-blue-soft: #0c2c3f;
+  --color-blue: #2563eb;
+  --color-blue-2: #3b82f6;
+  --color-blue-soft: #dbeafe;
 
-  --color-ink-muted: #7da8a1;
-  --color-slate: #9fc2bb;
+  --color-ink-muted: #64748b;
+  --color-slate: #475569;
 
   --font-display: var(--font-sora);
   --font-body: var(--font-inter);
@@ -48,6 +47,7 @@ html {
 body {
   background-color: var(--color-paper);
   color: var(--color-snow);
+  font-family: var(--font-body);
 }
 
 ::selection {
@@ -141,4 +141,67 @@ button:focus-visible {
   background:
     radial-gradient(50rem 30rem at 85% -5%, rgba(20, 216, 188, 0.12), transparent 60%),
     radial-gradient(40rem 28rem at 0% 45%, rgba(56, 189, 248, 0.08), transparent 60%);
+}
+
+/* Intro splash */
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #020b1a 0%, #0a1f3d 50%, #061428 100%);
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.intro-splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.intro-logo {
+  animation: logoIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.intro-script {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  background: linear-gradient(90deg, #00d4c8, #3b82f6, #00d4c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  animation: scriptIn 0.9s ease 0.9s forwards;
+}
+@keyframes logoIn {
+  from { opacity: 0; transform: scale(0.7) rotate(-8deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes scriptIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero cinematic */
+.hero-cinematic {
+  background:
+    linear-gradient(180deg, rgba(2,11,26,0.55) 0%, rgba(10,31,61,0.75) 100%),
+    radial-gradient(ellipse at 30% 20%, rgba(0,212,200,0.15), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(59,130,246,0.12), transparent 45%),
+    linear-gradient(135deg, #0a1628 0%, #0f2a4a 40%, #0a1f3d 100%);
+}
+
+/* Card polish */
+.card-elevated {
+  background: white;
+  border: 1px solid var(--color-line-light);
+  box-shadow: 0 4px 24px -4px rgba(10, 22, 40, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -8px rgba(10, 22, 40, 0.12);
 }

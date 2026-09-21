@@ -1,40 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects | Senotrams",
   description: "Selected work and the kinds of outcomes we deliver.",
 };
 
-const showcase = [
-  { title: "Product websites", category: "Web", blurb: "Clear marketing sites that explain the offer and convert visitors." },
-  { title: "Business web apps", category: "Software", blurb: "Internal tools and client portals built around real workflows." },
-  { title: "Brand systems", category: "Design", blurb: "Identity and assets that stay consistent across channels." },
-  { title: "Launch campaigns", category: "Marketing", blurb: "Coordinated content and ads around a product or event." },
-  { title: "Hosting & domains", category: "Infrastructure", blurb: "Reliable setups with email, SSL and ongoing care." },
-  { title: "Content systems", category: "Content", blurb: "Copy and calendars that keep a brand active online." },
-];
-
 export default function ProjectsPage() {
   return (
-    <div className="bg-paper">
+    <div className="bg-gradient-to-b from-[#f7fafc] to-white">
       <PageHero
-        eyebrow="Our work"
-        title="Outcomes we optimise for."
-        description="Here is the shape of work we take on request a similar engagement from Services."
+        eyebrow=""
+        title="Selected work"
+        description="Real projects we have helped shape. Request a similar engagement from Services."
       />
       <section className="px-6 py-16 md:px-10 md:py-24">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {showcase.map((p) => (
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+          {projects.map((p) => (
             <article
               key={p.title}
-              className="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.75rem] border border-line-light bg-paper-2 p-6 transition-colors hover:border-orange/40 sm:aspect-[5/6]"
+              className="overflow-hidden rounded-2xl border border-line-light bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <span className="eyebrow text-orange">{p.category}</span>
-              <div>
-                <h3 className="font-display text-xl font-bold text-snow">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate">{p.blurb}</p>
+              {p.image && (
+                <div className="aspect-[16/10] overflow-hidden bg-paper-2">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <p className="text-xs font-semibold uppercase tracking-wider text-orange">{p.category}</p>
+                <h3 className="mt-2 font-display text-xl font-bold text-snow">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{p.description}</p>
+                <p className="mt-3 text-xs text-slate">{p.service}</p>
               </div>
             </article>
           ))}

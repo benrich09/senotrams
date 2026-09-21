@@ -9,263 +9,277 @@ import {
   Code2,
   Rocket,
   LifeBuoy,
-  Quote,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
+import IntroSplash from "@/components/IntroSplash";
 import { services } from "@/data/services";
 
 const PM_STEPS = [
   {
     step: "01",
     title: "Discover",
-    text: "We clarify goals, users, scope and  success metrics so the project starts with a shared plan.",
+    text: "We clarify goals, users, scope and success metrics so the project starts with a shared plan.",
     icon: Search,
+    tools: ["Workshops", "Interviews", "Miro"],
   },
   {
     step: "02",
-    title: "Plan & design",
-    text: "Timelines, milestones, wireframes or creative direction  agreed before heavy build work begins.",
+    title: "Plan & Design",
+    text: "Timelines, milestones, wireframes and creative direction agreed before heavy build work begins.",
     icon: PenLine,
+    tools: ["Figma", "Roadmaps", "Prototypes"],
   },
   {
     step: "03",
     title: "Build",
-    text: "Work in short cycles with visible progress, demos and  feedback so nothing ships in the dark.",
+    text: "Work in short cycles with visible progress, demos and feedback so nothing ships in the dark.",
     icon: Code2,
+    tools: ["Next.js", "Flutter", "CI/CD"],
   },
   {
     step: "04",
     title: "Launch",
-    text: "Deploy, test, train your team and  hand over documentation so you can run day to day.",
+    text: "Deploy, test, train your team and hand over documentation so you can run day to day.",
     icon: Rocket,
+    tools: ["Vercel", "Render", "Monitoring"],
   },
   {
     step: "05",
-    title: "Support & grow",
-    text: "Fixes, improvements and  new features as your business needs change.",
+    title: "Support & Grow",
+    text: "Fixes, improvements and new features as your business needs change.",
     icon: LifeBuoy,
+    tools: ["Analytics", "Support desk", "Roadmap"],
   },
 ];
 
-const TOOLS = [
-  {
-    group: "Software",
-    items: ["React / Next.js", "TypeScript / Node.js", "Golang / Go Fiber", "Flutter / React Native", "PostgreSQL", "Docker"],
-  },
-  {
-    group: "Design & motion",
-    items: ["Figma", "Adobe Illustrator", "Photoshop", "After Effects", "Premiere Pro"],
-  },
-  {
-    group: "Hosting & ops",
-    items: ["Vercel", "Render", "DNS & SSL", "VPS / Linux", "CI/CD", "Backups"],
-  },
-  {
-    group: "Growth",
-    items: ["Meta Ads", "Google Ads", "Analytics", "SEO basics", "Content calendars"],
-  },
+const IMPACT = [
+  { num: "2", label: "Projects delivered" },
+  { num: "2", label: "Happy clients" },
+  { num: "5", label: "Core service lines" },
+  { num: "100%", label: "Transparent costs" },
 ];
 
-const TESTIMONIALS = [
+const INDUSTRIES = [
   {
-    quote:
-      "Senotrams took our idea from a rough brief to a working web app. Clear steps, regular updates and  no jargon.",
-    name: "Client, Dar es Salaam",
-    role: "Business owner",
-    service: "Software Development",
+    name: "FinTech & Banking",
+    image: "/images/industry-fintech.jpeg",
+    benefit: "Secure digital payments, scoring and banking tools that work for local markets.",
   },
   {
-    quote:
-      "They handled our domain, hosting and  email setup quickly. We finally look professional online.",
-    name: "Operations lead",
-    role: "SME",
-    service: "Hosting Services",
+    name: "Agriculture",
+    image: "/images/industry-agriculture.jpeg",
+    benefit: "Farm data, supply tracking and advisory tools that raise yields and cut waste.",
   },
   {
-    quote:
-      "The brand visuals and social content matched what we asked for. Fast turnaround and easy to work with.",
-    name: "Marketing contact",
-    role: "Growing brand",
-    service: "Graphics & Content",
+    name: "Healthcare",
+    image: "/images/industry-healthcare.jpeg",
+    benefit: "Patient apps, clinic systems and telehealth that keep care continuous.",
+  },
+  {
+    name: "Education",
+    image: "/images/industry-education.jpeg",
+    benefit: "E-learning platforms and school tools that reach students anywhere.",
+  },
+  {
+    name: "Logistics",
+    image: "/images/industry-logistics.jpeg",
+    benefit: "Fleet, inventory and route systems that move goods faster across the region.",
+  },
+  {
+    name: "Government",
+    image: "/images/industry-government.jpeg",
+    benefit: "Transparent digital services and data systems for public institutions.",
+  },
+  {
+    name: "Retail & E-commerce",
+    image: "/images/industry-retail.jpeg",
+    benefit: "Online shops, orders and payments that turn browsers into buyers.",
+  },
+  {
+    name: "Media & Entertainment",
+    image: "/images/industry-media.jpeg",
+    benefit: "Streaming, content and studio tech that scale audiences and revenue.",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[92vh] w-full items-center justify-center overflow-hidden bg-ink text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(20,216,188,0.14),transparent_55%),radial-gradient(circle_at_80%_70%,rgba(56,189,248,0.1),transparent_45%)]" />
-        <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-[0.1]" />
+      <IntroSplash />
+
+      {/* Hero — blurred hero.jpeg, no card overlay */}
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden text-white">
+        <div
+          className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url(/images/hero.jpeg)",
+            filter: "blur(6px)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020b1a]/75 via-[#0a1f3d]/70 to-[#061428]/85" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 py-28 text-center md:px-10">
-          <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-            Senotrams
-          </h1>
-          <p className="eyebrow mt-4 text-orange">
-            2026&nbsp;&nbsp;|&nbsp;&nbsp;Innovate&nbsp;&nbsp;|&nbsp;&nbsp;Build&nbsp;&nbsp;|&nbsp;&nbsp;Scale
-          </p>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-            Software development, hosting, design, animation, data analysis, digital marketing and
-            content creation.
+         
+          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            Strategic Digital
             <br />
-            Practical digital services for businesses that want to move faster online.
+            <span className="bg-gradient-to-r from-cyan-300 via-teal-200 to-blue-300 bg-clip-text text-transparent">
+              Solutions
+            </span>
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+            We design, build and grow digital products for businesses and innovators.
+            Clear process. Labeled costs. Real partnership.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_30px_rgba(20,216,188,0.4)]"
+              className="inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-ink transition hover:shadow-[0_0_30px_rgba(0,196,184,0.45)]"
             >
               Explore services
               <ArrowRight size={16} />
             </Link>
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:border-white/40"
+              href="/innovators"
+              className="inline-flex items-center gap-2 rounded-full border border-white/35 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
             >
-            Get in Touch
+              Partner as innovator
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-paper px-6 py-20 md:px-10 md:py-28">
+      {/* Impact bar */}
+      <section className="border-b border-line-light bg-gradient-to-r from-white via-[#f0f7ff] to-white px-6 py-10 md:px-10">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 md:grid-cols-4">
+          {IMPACT.map((i) => (
+            <div key={i.label} className="text-center">
+              <p className="font-display text-3xl font-bold text-orange sm:text-4xl">{i.num}</p>
+              <p className="mt-1 text-sm text-slate">{i.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Services with pictures */}
+      <section className="bg-gradient-to-b from-[#f7fafc] to-[#eef4f9] px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow text-blue">What we offer</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl md:text-5xl">
+            <h2 className="font-display text-3xl font-bold text-snow sm:text-4xl md:text-5xl">
               Services built for clarity
             </h2>
             <p className="mt-4 text-base text-slate">
-              Each service has a simple path from brief to delivery. 
+              Software, design, hosting, growth and content. Each with a simple path from brief to delivery.
             </p>
           </div>
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 6).map((s) => (
               <ServiceCard key={s.slug} service={s} />
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-orange hover:underline">
+              View all services <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Project management steps */}
-      <section className="bg-paper-2 px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-6xl">
+      {/* Process — vertical timeline */}
+      <section className="bg-white px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-3xl">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow text-orange">How we run work</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
-              Steps in project management
+            <h2 className="font-display text-3xl font-bold text-snow sm:text-4xl">
+              A clear path from idea to impact
             </h2>
             <p className="mt-4 text-base text-slate">
-              A clear path from first conversation to launch so you always know what happens next.
+              Transparent steps, tools at every stage, and regular demos so you always know the status.
             </p>
           </div>
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {PM_STEPS.map((s) => (
-              <article
-                key={s.step}
-                className="flex flex-col rounded-3xl border border-line-light bg-paper p-5 shadow-sm"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange/10 text-orange">
+          <div className="relative mt-14">
+            <div className="absolute left-5 top-2 bottom-2 w-0.5 bg-line-light md:left-6" />
+            <ol className="space-y-8">
+              {PM_STEPS.map((s) => (
+                <li key={s.step} className="relative flex gap-5 md:gap-6">
+                  <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-orange bg-white text-orange shadow-sm md:h-12 md:w-12">
                     <s.icon size={18} />
-                  </span>
-                  <span className="font-mono text-xs text-orange">{s.step}</span>
+                  </div>
+                  <div className="flex-1 rounded-2xl border border-line-light bg-white p-5 shadow-sm">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-mono text-[11px] font-semibold text-orange">{s.step}</span>
+                      <h3 className="font-display text-lg font-bold text-snow">{s.title}</h3>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate">{s.text}</p>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {s.tools.map((t) => (
+                        <span key={t} className="rounded-full border border-line-light bg-paper-2 px-2 py-0.5 text-[11px] font-medium text-slate">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* Industries */}
+      <section className="bg-white px-6 py-16 md:px-10 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-2xl font-bold text-snow sm:text-3xl">
+              Built for African markets
+            </h2>
+            <p className="mt-3 text-sm text-slate sm:text-base">
+              Practical digital solutions tailored to the sectors that drive growth across the continent.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {INDUSTRIES.map((ind) => (
+              <article
+                key={ind.name}
+                className="group overflow-hidden rounded-2xl border border-line-light bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="relative h-36 overflow-hidden bg-paper-2">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-bold text-snow">{s.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate">{s.text}</p>
+                <div className="p-4">
+                  <h3 className="font-display text-base font-bold text-snow">{ind.name}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate">{ind.benefit}</p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Tools & technologies */}
-      <section className="bg-paper px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow text-blue">Stack</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
-              Tools and technologies we use
-            </h2>
-            <p className="mt-4 text-base text-slate">
-              Practical tools matched to the job  software, design, hosting and  growth.
-            </p>
-          </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {TOOLS.map((g) => (
-              <div key={g.group} className="rounded-3xl border border-line-light bg-paper-2 p-6">
-                <h3 className="font-display text-lg font-bold text-snow">{g.group}</h3>
-                <ul className="mt-4 space-y-2">
-                  {g.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-paper-2 px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow text-orange">Feedback</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
-              What clients say about our services
-            </h2>
-            <p className="mt-4 text-base text-slate">
-              Real outcomes from software, hosting, design and  content work.
-            </p>
-          </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t) => (
-              <blockquote
-                key={t.quote}
-                className="flex h-full flex-col rounded-3xl border border-line-light bg-paper p-6 shadow-sm"
-              >
-                <Quote className="text-orange/80" size={22} />
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-slate">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-6 border-t border-line-light pt-4">
-                  <p className="text-sm font-semibold text-snow">{t.name}</p>
-                  <p className="text-xs text-slate">
-                    {t.role} · {t.service}
-                  </p>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Innovators */}
-      <section className="bg-paper px-6 py-20 md:px-10 md:py-28">
+      <section className="bg-gradient-to-b from-[#eef4f9] to-white px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <span className="eyebrow text-orange">Community</span>
-              <h2 className="mt-4 font-display text-3xl font-bold text-snow sm:text-4xl">
-                Connect with innovators
+              <h2 className="font-display text-3xl font-bold text-snow sm:text-4xl">
+                Have an idea but no tech skills or budget?
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate">
-                Builders, designers and founders are welcom to Share an idea, find collaborators or
-                explore how Senotrams can support your next product.
+                Senotrams partners with innovators who have strong ideas but limited technical knowledge or cannot yet afford full development rates. We remain your collaborator, helping turn the idea into a real, innovative product while you keep ownership.
               </p>
               <ul className="mt-8 space-y-4">
                 {[
-                  { icon: Lightbulb, t: "Share product ideas", d: "Early concepts and prototypes" },
-                  { icon: Users, t: "Meet practitioners", d: "Dev, design and growth people" },
-                  { icon: Sparkles, t: "Ship together", d: "Partner on real client work" },
+                  { icon: Lightbulb, t: "Bring the idea", d: "You focus on the vision and market need" },
+                  { icon: Users, t: "We supply the tech", d: "Design, build and launch as your partner" },
+                  { icon: Sparkles, t: "Share the journey", d: "Flexible collaboration, not just a one-off job" },
                 ].map((x) => (
                   <li key={x.t} className="flex gap-3">
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-soft text-orange">
                       <x.icon size={16} />
                     </span>
                     <div>
@@ -279,24 +293,24 @@ export default function Home() {
                 href="/innovators"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink"
               >
-                Visit innovators
+                Apply as innovator
                 <ArrowRight size={15} />
               </Link>
             </div>
-            <div className="rounded-[2rem] border border-line-light bg-paper-2 p-8 md:p-10">
-              <p className="font-display text-xl font-bold text-snow">How to plug in</p>
-              <ol className="mt-6 space-y-4 text-sm text-slate">
+            <div className="rounded-[2rem] border border-line-light bg-white p-8 shadow-sm md:p-10">
+              <p className="font-display text-xl font-bold text-snow">How partnership works</p>
+              <ol className="mt-6 space-y-5 text-sm text-slate">
                 <li className="flex gap-3">
-                  <span className="font-mono text-orange">01</span>
-                  Tell us what you are building or learning
+                  <span className="font-mono font-semibold text-orange">01</span>
+                  Share your idea and constraints (budget, skills, timeline)
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-mono text-orange">02</span>
-                  We route you to the right service or conversation
+                  <span className="font-mono font-semibold text-orange">02</span>
+                  We assess fit and propose a collaboration model
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-mono text-orange">03</span>
-                  Stay in the loop for workshops and collabs
+                  <span className="font-mono font-semibold text-orange">03</span>
+                  Build together. Senotrams as technical partner, you as founder
                 </li>
               </ol>
             </div>
@@ -304,29 +318,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-ink px-6 py-20 text-white md:px-10 md:py-24">
-        <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">Ready when you are</h2>
-          <p className="mt-4 max-w-xl text-white/65">
-            Request a service, apply to a role, or leave a suggestion  we read every message.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/services"
-              className="rounded-full bg-orange px-6 py-3 text-sm font-semibold text-ink"
-            >
-              Browse services
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white"
-            >
-              Get in touch
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

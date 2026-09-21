@@ -25,17 +25,27 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const dot = isOrange ? "bg-orange" : "bg-blue";
 
   return (
-    <div className="bg-paper">
-      <section className="border-b border-line-light bg-ink px-6 py-20 text-white md:px-10 md:py-28">
-        <div className="mx-auto max-w-6xl">
+    <div className="bg-gradient-to-b from-[#f7fafc] to-white">
+      <section className="relative overflow-hidden border-b border-line-light px-6 py-24 text-white md:px-10 md:py-32">
+        {service.image ? (
+          <>
+            <div
+              className="absolute inset-0 scale-105 bg-cover bg-center"
+              style={{ backgroundImage: `url(${service.image})`, filter: "blur(4px)" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#020b1a]/80 via-[#0a1f3d]/75 to-[#061428]/90" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-ink" />
+        )}
+        <div className="relative z-10 mx-auto max-w-6xl">
           <Link href="/services" className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white">
             <ArrowLeft size={16} />
             All services
           </Link>
           <div className="mt-8 max-w-3xl">
-            <p className="eyebrow text-orange">{service.tagline}</p>
-            <h1 className="mt-2 font-display text-4xl font-bold sm:text-5xl">{service.name}</h1>
-            <p className="mt-4 text-lg text-white/70">{service.longDescription}</p>
+            <h1 className="font-display text-4xl font-bold sm:text-5xl">{service.name}</h1>
+            <p className="mt-3 text-base text-white/75 sm:text-lg">{service.longDescription}</p>
           </div>
         </div>
       </section>
@@ -53,6 +63,24 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               ))}
             </ol>
           </div>
+
+          {service.priceFrom && (
+            <div className="rounded-2xl border border-orange/30 bg-gradient-to-br from-white to-[#eef9f7] p-6 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-orange">{service.priceLabel || "Starting price"}</p>
+              <p className="mt-2 font-display text-2xl font-bold text-snow sm:text-3xl">{service.priceFrom}</p>
+              <p className="mt-1 text-xs text-slate">Indicative in Tanzania Shilling. Final scope agreed in writing.</p>
+              {service.priceItems && service.priceItems.length > 0 && (
+                <ul className="mt-4 space-y-2">
+                  {service.priceItems.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm text-slate">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
 
           <div>
             <h2 className="font-display text-2xl font-bold text-snow">What is included</h2>

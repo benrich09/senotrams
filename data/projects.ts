@@ -4,25 +4,23 @@ export interface Project {
   service: string;
   category: string;
   description: string;
+  image?: string;
+  url?: string;
 }
 
 export const projects: Project[] = [
   {
-    title: "Business website rebuild",
-    service: "Web & Mobile Apps",
+    title: "All Access",
+    service: "Web & Customer Experience",
     category: "Website",
-    description: "Modern marketing site with contact and service pages.",
+    description: "Customer experience outsourcing platform covering call centre operations, WhatsApp support, social media management and training across Tanzania and East Africa.",
+    image: "/images/project-allaccess.png",
   },
   {
-    title: "Managed hosting & email",
-    service: "Hosting Services",
-    category: "Infrastructure",
-    description: "Domain, SSL, hosting and business email setup.",
-  },
-  {
-    title: "Brand identity pack",
-    service: "Graphics Designing",
-    category: "Design",
-    description: "Logo, colours, typography and social templates.",
+    title: "Smile Creative",
+    service: "Software, SMS & Media",
+    category: "Website",
+    description: "Digital experiences, bulk SMS campaigns and professional film and media for businesses that want to connect, engage and grow.",
+    image: "/images/project-smile.png",
   },
 ];

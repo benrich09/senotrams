@@ -13,19 +13,19 @@ import {
 import PageHero from "@/components/PageHero";
 import { CONTACT } from "@/data/contact";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://senotrams-backend.onrender.com";
 
 const iconBox =
   "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange/15 text-orange";
 
 const SOCIAL = [
-  { href: CONTACT.social.linkedin, label: "LinkedIn", icon: FaLinkedinIn },
-  { href: CONTACT.social.instagram, label: "Instagram", icon: FaInstagram },
-  { href: CONTACT.social.twitter, label: "X / Twitter", icon: FaXTwitter },
-  { href: CONTACT.social.facebook, label: "Facebook", icon: FaFacebookF },
-  { href: CONTACT.social.tiktok, label: "TikTok", icon: FaTiktok },
+  { href: CONTACT.social.linkedin, label: "LinkedIn", icon: FaLinkedinIn, bg: "bg-[#0A66C2]", hover: "hover:bg-[#004182]" },
+  { href: CONTACT.social.instagram, label: "Instagram", icon: FaInstagram, bg: "bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af]", hover: "hover:opacity-90" },
+  { href: CONTACT.social.twitter, label: "X / Twitter", icon: FaXTwitter, bg: "bg-black", hover: "hover:bg-neutral-800" },
+  { href: CONTACT.social.facebook, label: "Facebook", icon: FaFacebookF, bg: "bg-[#1877F2]", hover: "hover:bg-[#0d65d9]" },
+  { href: CONTACT.social.tiktok, label: "TikTok", icon: FaTiktok, bg: "bg-black", hover: "hover:bg-neutral-800" },
   ...(CONTACT.social.youtube
-    ? [{ href: CONTACT.social.youtube, label: "YouTube", icon: FaYoutube }]
+    ? [{ href: CONTACT.social.youtube, label: "YouTube", icon: FaYoutube, bg: "bg-[#FF0000]", hover: "hover:bg-[#cc0000]" }]
     : []),
 ].filter((s) => Boolean(s.href));
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
   return (
     <div className="bg-paper">
       <PageHero
-        eyebrow="Contact"
+         eyebrow=""
         title="We’re here to help."
         description="Ask a question, request support or share a suggestion. Prefer a quick chat? Use WhatsApp, email, or call us."
       />
@@ -147,7 +147,7 @@ export default function ContactPage() {
               <li>
                 <div className="rounded-2xl border border-line-light bg-paper-2 p-4">
                   <p className="mb-3 text-sm font-semibold text-snow">Social media</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2.5">
                     {SOCIAL.map((s) => {
                       const Icon = s.icon;
                       return (
@@ -156,9 +156,10 @@ export default function ContactPage() {
                           href={s.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-medium text-slate transition-colors hover:border-orange/40 hover:text-orange"
+                          aria-label={s.label}
+                          className={`inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition ${s.bg} ${s.hover}`}
                         >
-                          <Icon size={13} />
+                          <Icon size={14} />
                           {s.label}
                         </a>
                       );
@@ -227,7 +228,7 @@ export default function ContactPage() {
               </label>
 
               {status === "ok" && (
-                <p className="text-sm text-orange">Thank you   your message was received.</p>
+                <p className="text-sm text-orange">Thank you — your message was received.</p>
               )}
               {status === "err" && <p className="text-sm text-red-400">{error}</p>}
 

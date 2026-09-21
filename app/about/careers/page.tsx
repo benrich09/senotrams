@@ -63,7 +63,7 @@ export default function CareersPage() {
   return (
     <div className="bg-paper">
       <PageHero
-        eyebrow="Careers"
+        eyebrow=""  
         title="Build with us."
         description="Join our team and help us shape the future of technology."
       />

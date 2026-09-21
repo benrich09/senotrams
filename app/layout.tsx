@@ -25,9 +25,13 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   title: {
-    default: "Senotrams",
-    template: "%s ",
+    default: "Senotrams | Design and Development",
+    template: "%s | Senotrams",
   },
   description:
     "Senotrams delivers software development, hosting, design & animation, data analysis and digital marketing  in Tanzania.",
