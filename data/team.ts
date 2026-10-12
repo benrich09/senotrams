@@ -56,4 +56,9 @@ export const partners: Partner[] = [
     description: "Customer experience outsourcing across Tanzania and East Africa. Call centre, WhatsApp support, social media management and training.",
     logo: "/images/partner-allaccess.jpeg",
   },
+  {
+    name: "Smile Creative",
+    description: "Digital experiences, bulk SMS campaigns and professional film and media for businesses that want to connect, engage and grow.",
+    logo: "/images/smile.jpeg",
+  },
 ];

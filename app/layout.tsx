@@ -26,8 +26,8 @@ const jbMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/logo-round.png",
+    apple: "/images/logo-round.png",
   },
   title: {
     default: "Senotrams | Design and Development",
